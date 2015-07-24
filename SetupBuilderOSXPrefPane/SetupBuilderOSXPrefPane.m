@@ -8,10 +8,28 @@
 
 #import "SetupBuilderOSXPrefPane.h"
 
+#import "OnOffSwitchControl.h"
+#import "OnOffSwitchControlCell.h"
+#import "ServiceController.h"
+#import "Service.h"
+#import "Process.h"
+
 @implementation SetupBuilderOSXPrefPane
 
 - (void)mainViewDidLoad
 {
+    NSURL *plist = [[NSBundle bundleForClass:[self class]] URLForResource:@"com.inet.pdfc.PDFCServer" withExtension:@"plist"];
+    Service *service = [[Service alloc] initWithOptions:@{
+                       @"plist":plist,
+                       @"useSudo":@YES,
+                       @"runAtLogin":@YES
+    }];
+    
+    serviceController = [[ServiceController alloc] initWithService:service];
+}
+
+- (void)didUnselect {
+    [Process killSudoHelper];
 }
 
 @end

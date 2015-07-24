@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6233" systemVersion="14A329f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="15A226f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6233"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSPreferencePane">
+        <customObject id="-2" userLabel="File's Owner" customClass="SetupBuilderOSXPrefPane">
             <connections>
                 <outlet property="_window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+                <outlet property="serviceController" destination="lHB-bB-yFt" id="0T9-SS-TcY"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -19,7 +21,129 @@
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="668" height="368"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gj-zc-lV2">
+                        <rect key="frame" x="20" y="220" width="128" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="128" id="6am-gd-Eae"/>
+                            <constraint firstAttribute="height" constant="128" id="qiJ-Jl-S3e"/>
+                        </constraints>
+                        <animations/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ProductIcon.icns" id="vSY-Z7-aCS"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YSO-gs-n7c">
+                        <rect key="frame" x="166" y="324" width="484" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="vEe-CW-wdG"/>
+                        </constraints>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Product Name" usesSingleLineMode="YES" id="0de-rN-09U">
+                            <font key="font" metaFont="systemBold" size="20"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="H8y-V2-bcY" customClass="OnOffSwitchControl">
+                        <rect key="frame" x="413" y="282" width="100" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="4iU-94-eff"/>
+                            <constraint firstAttribute="width" constant="100" id="blx-3c-aMb"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" title="RunAtBoot" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="ka7-Bg-bvs" customClass="OnOffSwitchControlCell">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="handleRunAtLoginClick:" target="lHB-bB-yFt" id="udL-Sm-wQN"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="UVh-5S-PSz" customClass="OnOffSwitchControl">
+                        <rect key="frame" x="413" y="250" width="100" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="43b-W8-bOY"/>
+                            <constraint firstAttribute="height" constant="24" id="Cuf-Ow-Mue"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" title="RunAsRoot" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="fAg-tE-ueN" customClass="OnOffSwitchControlCell">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="handleSudoClick:" target="lHB-bB-yFt" id="6uQ-xs-hgA"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GgX-Jv-qDK">
+                        <rect key="frame" x="166" y="250" width="150" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="146" id="FLD-lE-Xr6"/>
+                            <constraint firstAttribute="height" constant="24" id="fV9-8g-9Dm"/>
+                        </constraints>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Run as root:" id="PF4-pF-37T">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EYB-Vk-qAi">
+                        <rect key="frame" x="166" y="282" width="154" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Eu0-BM-gwq"/>
+                            <constraint firstAttribute="width" constant="150" id="uvN-VT-KLu"/>
+                        </constraints>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Run at boot:" id="PUL-sL-Ngp">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="0pt-T0-CY2" customClass="OnOffSwitchControl">
+                        <rect key="frame" x="414" y="164" width="104" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="104" id="FDR-Cp-8rf"/>
+                            <constraint firstAttribute="height" constant="36" id="lOC-VR-79J"/>
+                        </constraints>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" title="StartService" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="9HD-iM-xNj" customClass="OnOffSwitchControlCell">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="handleStartStopClick:" target="lHB-bB-yFt" id="uUu-My-OJD"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="UVh-5S-PSz" secondAttribute="trailing" constant="155" id="1D8-B5-rfg"/>
+                    <constraint firstItem="0gj-zc-lV2" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="3zs-rv-UiW"/>
+                    <constraint firstItem="0pt-T0-CY2" firstAttribute="top" secondItem="UVh-5S-PSz" secondAttribute="bottom" constant="50" id="4l2-iI-kpg"/>
+                    <constraint firstAttribute="trailing" secondItem="0pt-T0-CY2" secondAttribute="trailing" constant="150" id="9ii-Be-dHG"/>
+                    <constraint firstItem="H8y-V2-bcY" firstAttribute="top" secondItem="YSO-gs-n7c" secondAttribute="bottom" constant="18" id="Aqc-QW-5dW"/>
+                    <constraint firstItem="0gj-zc-lV2" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="GBG-tc-nAO"/>
+                    <constraint firstItem="GgX-Jv-qDK" firstAttribute="leading" secondItem="0gj-zc-lV2" secondAttribute="trailing" constant="20" id="IwN-Ak-yjH"/>
+                    <constraint firstItem="UVh-5S-PSz" firstAttribute="top" secondItem="H8y-V2-bcY" secondAttribute="bottom" constant="8" id="NiN-CI-oeN"/>
+                    <constraint firstItem="GgX-Jv-qDK" firstAttribute="top" secondItem="EYB-Vk-qAi" secondAttribute="bottom" constant="8" id="Onn-hG-bc6"/>
+                    <constraint firstItem="EYB-Vk-qAi" firstAttribute="top" secondItem="YSO-gs-n7c" secondAttribute="bottom" constant="18" id="RfD-fw-toc"/>
+                    <constraint firstAttribute="trailing" secondItem="YSO-gs-n7c" secondAttribute="trailing" constant="20" id="WEd-Ty-uaw"/>
+                    <constraint firstItem="YSO-gs-n7c" firstAttribute="leading" secondItem="0gj-zc-lV2" secondAttribute="trailing" constant="20" id="aee-GW-a6H"/>
+                    <constraint firstItem="YSO-gs-n7c" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="cQp-zt-lb8"/>
+                    <constraint firstAttribute="trailing" secondItem="H8y-V2-bcY" secondAttribute="trailing" constant="155" id="d2W-zW-3Ka"/>
+                    <constraint firstItem="EYB-Vk-qAi" firstAttribute="leading" secondItem="0gj-zc-lV2" secondAttribute="trailing" constant="20" id="lSE-06-gqr"/>
+                </constraints>
+                <animations/>
             </view>
         </window>
+        <customObject id="lHB-bB-yFt" customClass="ServiceController">
+            <connections>
+                <outlet property="onOffSwitch" destination="0pt-T0-CY2" id="1vD-Ij-AMp"/>
+                <outlet property="runAsRoot" destination="UVh-5S-PSz" id="HL2-fO-iRU"/>
+                <outlet property="runtAtBoot" destination="H8y-V2-bcY" id="fOT-FW-WAN"/>
+            </connections>
+        </customObject>
     </objects>
+    <resources>
+        <image name="ProductIcon.icns" width="128" height="128"/>
+    </resources>
 </document>

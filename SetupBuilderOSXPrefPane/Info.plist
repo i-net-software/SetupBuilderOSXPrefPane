@@ -25,9 +25,9 @@
 	<key>NSMainNibFile</key>
 	<string>SetupBuilderOSXPrefPane</string>
 	<key>NSPrefPaneIconFile</key>
-	<string>SetupBuilderOSXPrefPane.tiff</string>
+	<string>ProductIcon.icns</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>SetupBuilderOSXPrefPane</string>
+	<string>PDFC Server</string>
 	<key>NSPrincipalClass</key>
 	<string>SetupBuilderOSXPrefPane</string>
 </dict>

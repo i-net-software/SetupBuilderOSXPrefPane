@@ -8,8 +8,13 @@
 
 #import <PreferencePanes/PreferencePanes.h>
 
+@class ServiceController;
 @interface SetupBuilderOSXPrefPane : NSPreferencePane
+{
+    IBOutlet ServiceController *serviceController;
+}
 
 - (void)mainViewDidLoad;
+- (void)didUnselect;
 
 @end

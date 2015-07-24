@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300AAE101B60D9A800953A78 /* OnOffSwitchControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 300AAE0C1B60D9A800953A78 /* OnOffSwitchControl.h */; };
+		300AAE111B60D9A800953A78 /* OnOffSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AAE0D1B60D9A800953A78 /* OnOffSwitchControl.m */; };
+		300AAE121B60D9A800953A78 /* OnOffSwitchControlCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 300AAE0E1B60D9A800953A78 /* OnOffSwitchControlCell.h */; };
+		300AAE131B60D9A800953A78 /* OnOffSwitchControlCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AAE0F1B60D9A800953A78 /* OnOffSwitchControlCell.m */; };
+		300AAE161B60DF1B00953A78 /* ProductIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 300AAE151B60DF1B00953A78 /* ProductIcon.icns */; };
+		300AAE291B60E44200953A78 /* sudo.app in Resources */ = {isa = PBXBuildFile; fileRef = 300AAE281B60E44200953A78 /* sudo.app */; };
+		300AAE321B60E4C700953A78 /* Process.h in Headers */ = {isa = PBXBuildFile; fileRef = 300AAE2C1B60E4C700953A78 /* Process.h */; };
+		300AAE331B60E4C700953A78 /* Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AAE2D1B60E4C700953A78 /* Process.m */; };
+		300AAE341B60E4C700953A78 /* Service.h in Headers */ = {isa = PBXBuildFile; fileRef = 300AAE2E1B60E4C700953A78 /* Service.h */; };
+		300AAE351B60E4C700953A78 /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AAE2F1B60E4C700953A78 /* Service.m */; };
+		300AAE361B60E4C700953A78 /* ServiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 300AAE301B60E4C700953A78 /* ServiceController.h */; };
+		300AAE371B60E4C700953A78 /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AAE311B60E4C700953A78 /* ServiceController.m */; };
+		303114CE1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 303114CD1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist */; };
 		3066D9D61B60D49400729DB7 /* SetupBuilderOSXPrefPane.h in Headers */ = {isa = PBXBuildFile; fileRef = 3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */; };
 		3066D9D81B60D49400729DB7 /* SetupBuilderOSXPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */; };
 		3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */; };
@@ -14,6 +27,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		300AAE0C1B60D9A800953A78 /* OnOffSwitchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControl.h; sourceTree = "<group>"; };
+		300AAE0D1B60D9A800953A78 /* OnOffSwitchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControl.m; sourceTree = "<group>"; };
+		300AAE0E1B60D9A800953A78 /* OnOffSwitchControlCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnOffSwitchControlCell.h; sourceTree = "<group>"; };
+		300AAE0F1B60D9A800953A78 /* OnOffSwitchControlCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnOffSwitchControlCell.m; sourceTree = "<group>"; };
+		300AAE151B60DF1B00953A78 /* ProductIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ProductIcon.icns; sourceTree = "<group>"; };
+		300AAE281B60E44200953A78 /* sudo.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = sudo.app; sourceTree = "<group>"; };
+		300AAE2C1B60E4C700953A78 /* Process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Process.h; sourceTree = "<group>"; };
+		300AAE2D1B60E4C700953A78 /* Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Process.m; sourceTree = "<group>"; };
+		300AAE2E1B60E4C700953A78 /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
+		300AAE2F1B60E4C700953A78 /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		300AAE301B60E4C700953A78 /* ServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
+		300AAE311B60E4C700953A78 /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
+		303114CD1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.inet.pdfc.PDFCServer.plist; sourceTree = "<group>"; };
 		3066D9D01B60D49400729DB7 /* SetupBuilderOSXPrefPane.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetupBuilderOSXPrefPane.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		3066D9D41B60D49400729DB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupBuilderOSXPrefPane.h; sourceTree = "<group>"; };
@@ -33,6 +59,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300AAE0A1B60D9A800953A78 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				300AAE281B60E44200953A78 /* sudo.app */,
+				300AAE0B1B60D9A800953A78 /* OnOffSwitchControl */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		300AAE0B1B60D9A800953A78 /* OnOffSwitchControl */ = {
+			isa = PBXGroup;
+			children = (
+				300AAE0C1B60D9A800953A78 /* OnOffSwitchControl.h */,
+				300AAE0D1B60D9A800953A78 /* OnOffSwitchControl.m */,
+				300AAE0E1B60D9A800953A78 /* OnOffSwitchControlCell.h */,
+				300AAE0F1B60D9A800953A78 /* OnOffSwitchControlCell.m */,
+			);
+			path = OnOffSwitchControl;
+			sourceTree = "<group>";
+		};
+		300AAE141B60DF1B00953A78 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				303114CD1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist */,
+				300AAE151B60DF1B00953A78 /* ProductIcon.icns */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		300AAE2B1B60E4C700953A78 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				300AAE2C1B60E4C700953A78 /* Process.h */,
+				300AAE2D1B60E4C700953A78 /* Process.m */,
+				300AAE2E1B60E4C700953A78 /* Service.h */,
+				300AAE2F1B60E4C700953A78 /* Service.m */,
+				300AAE301B60E4C700953A78 /* ServiceController.h */,
+				300AAE311B60E4C700953A78 /* ServiceController.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		3066D9C61B60D49400729DB7 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +120,9 @@
 		3066D9D21B60D49400729DB7 /* SetupBuilderOSXPrefPane */ = {
 			isa = PBXGroup;
 			children = (
+				300AAE2B1B60E4C700953A78 /* Service */,
+				300AAE141B60DF1B00953A78 /* Resources */,
+				300AAE0A1B60D9A800953A78 /* lib */,
 				3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */,
 				3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */,
 				3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */,
@@ -76,7 +147,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300AAE341B60E4C700953A78 /* Service.h in Headers */,
+				300AAE121B60D9A800953A78 /* OnOffSwitchControlCell.h in Headers */,
+				300AAE361B60E4C700953A78 /* ServiceController.h in Headers */,
 				3066D9D61B60D49400729DB7 /* SetupBuilderOSXPrefPane.h in Headers */,
+				300AAE321B60E4C700953A78 /* Process.h in Headers */,
+				300AAE101B60D9A800953A78 /* OnOffSwitchControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +216,9 @@
 			files = (
 				3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */,
 				3066D9DD1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib in Resources */,
+				300AAE291B60E44200953A78 /* sudo.app in Resources */,
+				303114CE1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist in Resources */,
+				300AAE161B60DF1B00953A78 /* ProductIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +229,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300AAE351B60E4C700953A78 /* Service.m in Sources */,
+				300AAE111B60D9A800953A78 /* OnOffSwitchControl.m in Sources */,
+				300AAE131B60D9A800953A78 /* OnOffSwitchControlCell.m in Sources */,
 				3066D9D81B60D49400729DB7 /* SetupBuilderOSXPrefPane.m in Sources */,
+				300AAE331B60E4C700953A78 /* Process.m in Sources */,
+				300AAE371B60E4C700953A78 /* ServiceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -239,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -249,8 +333,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = NO;
+				DSTROOT = /tmp/prefPane;
 				INFOPLIST_FILE = SetupBuilderOSXPrefPane/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -260,8 +347,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = NO;
+				DSTROOT = /tmp/prefPane;
 				INFOPLIST_FILE = SetupBuilderOSXPrefPane/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = prefPane;
 			};
@@ -286,6 +376,7 @@
 				3066D9E21B60D49400729DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
