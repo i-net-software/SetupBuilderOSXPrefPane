@@ -53,4 +53,20 @@
 }
 
 
+- (NSString *)pathForService {
+    
+    NSString *plistFile = [NSString stringWithFormat:@"/tmp/%@.plist", self.identifier];
+    if (self.runAtLogin) {
+        if (self.useSudo) {
+            plistFile = [NSString stringWithFormat:@"/Library/LaunchDaemons/%@.plist", self.identifier];
+        } else {
+            plistFile = [NSString stringWithFormat:@"%@/Library/LaunchAgents/%@.plist", NSHomeDirectory(), self.identifier];
+        }
+        plistFile =[NSString stringWithFormat:@"/Library/LaunchDaemons/%@.plist", self.identifier];
+    }
+    
+    NSLog(@"Path for service: %@", plistFile);
+    return plistFile;
+}
+
 @end

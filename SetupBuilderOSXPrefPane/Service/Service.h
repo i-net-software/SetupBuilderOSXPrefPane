@@ -13,11 +13,13 @@
 @property (retain) NSURL* plist;
 @property (retain) NSString* identifier;
 @property (retain) NSString* name;
+
 @property bool useSudo;
 @property bool runAtLogin;
 
 
 - (id) initWithOptions:(NSDictionary*) options;
 - (NSMutableDictionary *) getPlistData;
+- (NSString *)pathForService;
 
 @end

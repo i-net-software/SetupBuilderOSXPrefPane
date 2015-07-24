@@ -18,18 +18,23 @@
 
 - (void)mainViewDidLoad
 {
-    NSURL *plist = [[NSBundle bundleForClass:[self class]] URLForResource:@"com.inet.pdfc.PDFCServer" withExtension:@"plist"];
-    Service *service = [[Service alloc] initWithOptions:@{
-                       @"plist":plist,
-                       @"useSudo":@YES,
-                       @"runAtLogin":@YES
-    }];
-    
-    serviceController = [[ServiceController alloc] initWithService:service];
 }
 
 - (void)didUnselect {
     [Process killSudoHelper];
+}
+
+- (void)didSelect {
+    NSURL *plist = [[NSBundle bundleForClass:[self class]] URLForResource:@"com.inet.pdfc.PDFCServer" withExtension:@"plist"];
+    Service *service = [[Service alloc] initWithOptions:@{
+                                                          @"plist":plist,
+                                                          @"useSudo":@YES,
+                                                          @"runAtLogin":@YES
+                                                          }];
+    
+    [serviceController setService:service];
+    [serviceController isStarted];
+    [serviceController updateStatusIndicator];
 }
 
 @end

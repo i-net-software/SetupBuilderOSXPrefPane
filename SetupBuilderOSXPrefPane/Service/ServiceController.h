@@ -14,8 +14,6 @@
 @interface ServiceController : NSObject {
     
     IBOutlet OnOffSwitchControl *onOffSwitch;
-    IBOutlet OnOffSwitchControl *runtAtBoot;
-    IBOutlet OnOffSwitchControl *runAsRoot;
     IBOutlet NSImageView *statusIndicator;
 
 }
@@ -25,15 +23,11 @@
 
 @property int status;
 
--(id) initWithService:(Service *) theService;
 -(BOOL) isStarted;
 -(void) start;
 -(void) stop;
 -(void) updateStatusIndicator;
--(void) handleRemoveClick:(id)sender;
 
 - (IBAction) handleStartStopClick:(OnOffSwitchControl *)onOff;
-- (IBAction) handleSudoClick:(OnOffSwitchControl *)onOff;
-- (IBAction) handleRunAtLoginClick:(OnOffSwitchControl *)onOff;
 
 @end
