@@ -8,8 +8,6 @@
 
 #import "SetupBuilderOSXPrefPane.h"
 
-#import "OnOffSwitchControl.h"
-#import "OnOffSwitchControlCell.h"
 #import "ServiceController.h"
 #import "Service.h"
 #import "Process.h"
@@ -18,6 +16,8 @@
 
 - (void)mainViewDidLoad
 {
+    NSURL *plist = [[NSBundle bundleForClass:[self class]] URLForResource:@"service" withExtension:@"plist"];
+    service = [[Service alloc] initWithPlistURL:plist];
 }
 
 - (void)didUnselect {
@@ -25,13 +25,6 @@
 }
 
 - (void)didSelect {
-    NSURL *plist = [[NSBundle bundleForClass:[self class]] URLForResource:@"com.inet.pdfc.PDFCServer" withExtension:@"plist"];
-    Service *service = [[Service alloc] initWithOptions:@{
-                                                          @"plist":plist,
-                                                          @"useSudo":@YES,
-                                                          @"runAtLogin":@YES
-                                                          }];
-    
     [serviceController setService:service];
     [serviceController isStarted];
     [serviceController updateStatusIndicator];

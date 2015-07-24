@@ -14,49 +14,40 @@
 @synthesize identifier;
 @synthesize name;
 @synthesize useSudo;
-@synthesize runAtLogin;
+@synthesize runAtBoot;
+@synthesize description;
 
-- (id) initWithOptions:(NSDictionary *)options {
+- (id) initWithPlistURL:(NSURL *)plistURL
+{
     self = [super init];
-    self.plist = [options objectForKey:@"plist"];
+    self.plist = plistURL;
       
     NSDictionary *plistData = [[NSDictionary alloc] initWithContentsOfURL:self.plist];
     self.identifier = [plistData objectForKey:@"Label"];
-    self.name = [options objectForKey:@"name"];
+    self.name = [plistData objectForKey:@"Name"];
     
-    NSNumber *shouldUseSudo = [options objectForKey:@"useSudo"];
+    NSNumber *shouldUseSudo = [plistData objectForKey:@"RunAsRoot"];
     if (shouldUseSudo == nil) {
         self.useSudo = NO;
     } else {
         self.useSudo = [shouldUseSudo boolValue];
     }
     
-    NSNumber *shouldRunAtLogin = [options objectForKey:@"runAtLogin"];
+    NSNumber *shouldRunAtLogin = [plistData objectForKey:@"RunAtBoot"];
     if (shouldRunAtLogin == nil) {
-        self.runAtLogin = NO;
+        self.runAtBoot = NO;
     } else {
-        self.runAtLogin = [shouldRunAtLogin boolValue];
+        self.runAtBoot = [shouldRunAtLogin boolValue];
     }
 
-    NSLog(@"%@", self.plist);
-    
-    return self;    
+    description = [plistData objectForKey:@"Description"];
+    return self;
 }
-
--(NSMutableDictionary *) getPlistData {
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
-    [data setObject:self.name forKey:@"name"];
-    [data setObject:self.plist forKey:@"plist"];
-    [data setObject:[NSNumber numberWithBool:self.useSudo] forKey:@"useSudo"];
-    [data setObject:[NSNumber numberWithBool:self.runAtLogin] forKey:@"runAtLogin"];
-    return data;
-}
-
 
 - (NSString *)pathForService {
     
     NSString *plistFile = [NSString stringWithFormat:@"/tmp/%@.plist", self.identifier];
-    if (self.runAtLogin) {
+    if (self.runAtBoot) {
         if (self.useSudo) {
             plistFile = [NSString stringWithFormat:@"/Library/LaunchDaemons/%@.plist", self.identifier];
         } else {

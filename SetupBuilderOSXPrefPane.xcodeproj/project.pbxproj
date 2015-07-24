@@ -19,15 +19,15 @@
 		300AAE351B60E4C700953A78 /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AAE2F1B60E4C700953A78 /* Service.m */; };
 		300AAE361B60E4C700953A78 /* ServiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 300AAE301B60E4C700953A78 /* ServiceController.h */; };
 		300AAE371B60E4C700953A78 /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300AAE311B60E4C700953A78 /* ServiceController.m */; };
-		303114CE1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 303114CD1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist */; };
+		303114CE1B6120950017C421 /* service.plist in Resources */ = {isa = PBXBuildFile; fileRef = 303114CD1B6120950017C421 /* service.plist */; };
 		3066D9D61B60D49400729DB7 /* SetupBuilderOSXPrefPane.h in Headers */ = {isa = PBXBuildFile; fileRef = 3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */; };
 		3066D9D81B60D49400729DB7 /* SetupBuilderOSXPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */; };
 		3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */; };
 		3066D9DD1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3066D9DB1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib */; };
-		30EB7DAA1B621A1C0086A79A /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA61B621A1C0086A79A /* gray.png */; };
-		30EB7DAB1B621A1C0086A79A /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA71B621A1C0086A79A /* green.png */; };
-		30EB7DAC1B621A1C0086A79A /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA81B621A1C0086A79A /* red.png */; };
-		30EB7DAD1B621A1C0086A79A /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA91B621A1C0086A79A /* yellow.png */; };
+		30957F4E1B626BC900D8528D /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4A1B626BC900D8528D /* gray.png */; };
+		30957F4F1B626BC900D8528D /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4B1B626BC900D8528D /* green.png */; };
+		30957F501B626BC900D8528D /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4C1B626BC900D8528D /* red.png */; };
+		30957F511B626BC900D8528D /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4D1B626BC900D8528D /* yellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,17 +43,17 @@
 		300AAE2F1B60E4C700953A78 /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
 		300AAE301B60E4C700953A78 /* ServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
 		300AAE311B60E4C700953A78 /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
-		303114CD1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = com.inet.pdfc.PDFCServer.plist; sourceTree = "<group>"; };
+		303114CD1B6120950017C421 /* service.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = service.plist; sourceTree = "<group>"; };
 		3066D9D01B60D49400729DB7 /* SetupBuilderOSXPrefPane.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetupBuilderOSXPrefPane.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		3066D9D41B60D49400729DB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupBuilderOSXPrefPane.h; sourceTree = "<group>"; };
 		3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupBuilderOSXPrefPane.m; sourceTree = "<group>"; };
 		3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SetupBuilderOSXPrefPane.tiff; sourceTree = "<group>"; };
 		3066D9DC1B60D49400729DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SetupBuilderOSXPrefPane.xib; sourceTree = "<group>"; };
-		30EB7DA61B621A1C0086A79A /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray.png; sourceTree = "<group>"; };
-		30EB7DA71B621A1C0086A79A /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
-		30EB7DA81B621A1C0086A79A /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
-		30EB7DA91B621A1C0086A79A /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		30957F4A1B626BC900D8528D /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray.png; sourceTree = "<group>"; };
+		30957F4B1B626BC900D8528D /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		30957F4C1B626BC900D8528D /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		30957F4D1B626BC900D8528D /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,11 +90,8 @@
 		300AAE141B60DF1B00953A78 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				30EB7DA61B621A1C0086A79A /* gray.png */,
-				30EB7DA71B621A1C0086A79A /* green.png */,
-				30EB7DA81B621A1C0086A79A /* red.png */,
-				30EB7DA91B621A1C0086A79A /* yellow.png */,
-				303114CD1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist */,
+				30957F491B626BC900D8528D /* status */,
+				303114CD1B6120950017C421 /* service.plist */,
 				300AAE151B60DF1B00953A78 /* ProductIcon.icns */,
 			);
 			path = Resources;
@@ -150,6 +147,17 @@
 				3066D9D41B60D49400729DB7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30957F491B626BC900D8528D /* status */ = {
+			isa = PBXGroup;
+			children = (
+				30957F4A1B626BC900D8528D /* gray.png */,
+				30957F4B1B626BC900D8528D /* green.png */,
+				30957F4C1B626BC900D8528D /* red.png */,
+				30957F4D1B626BC900D8528D /* yellow.png */,
+			);
+			path = status;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,14 +234,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30EB7DAB1B621A1C0086A79A /* green.png in Resources */,
-				30EB7DAD1B621A1C0086A79A /* yellow.png in Resources */,
+				30957F4F1B626BC900D8528D /* green.png in Resources */,
 				3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */,
 				3066D9DD1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib in Resources */,
-				30EB7DAA1B621A1C0086A79A /* gray.png in Resources */,
+				30957F511B626BC900D8528D /* yellow.png in Resources */,
 				300AAE291B60E44200953A78 /* sudo.app in Resources */,
-				30EB7DAC1B621A1C0086A79A /* red.png in Resources */,
-				303114CE1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist in Resources */,
+				30957F4E1B626BC900D8528D /* gray.png in Resources */,
+				30957F501B626BC900D8528D /* red.png in Resources */,
+				303114CE1B6120950017C421 /* service.plist in Resources */,
 				300AAE161B60DF1B00953A78 /* ProductIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

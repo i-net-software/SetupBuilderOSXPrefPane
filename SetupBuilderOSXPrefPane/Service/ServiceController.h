@@ -15,7 +15,7 @@
     
     IBOutlet OnOffSwitchControl *onOffSwitch;
     IBOutlet NSImageView *statusIndicator;
-
+    IBOutlet NSTextField *description;
 }
 
 @property (strong) Service *service;

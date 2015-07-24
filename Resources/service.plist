@@ -10,5 +10,11 @@
 	<string>com.inet.pdfc.PDFCServer</string>
 	<key>Program</key>
 	<string>/Library/pdfc-server/pdfc-server.app/Contents/MacOS/pdfc-server</string>
+	<key>RunAsRoot</key>
+	<true/>
+	<key>RunAtBoot</key>
+	<true/>
+	<key>Description</key>
+	<string>This is the description of the current product. </string>
 </dict>
 </plist>

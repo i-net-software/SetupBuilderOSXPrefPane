@@ -96,7 +96,7 @@
             break;
     }
 
-    NSLog(@"Status: %d; runAsRoot: %d, runAtLogin: %d", self.status, self.service.useSudo, self.service.runAtLogin);
+    NSLog(@"Status: %d; runAsRoot: %d, runAtLogin: %d", self.status, self.service.useSudo, self.service.runAtBoot);
     [onOffSwitch setState:self.status != 0 ? 1 : 0];
     
     [statusIndicator setImage:[NSImage imageNamed:statusImageName]];
