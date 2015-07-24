@@ -26,6 +26,8 @@
     if ([self isStarted]) {
         self.status = 2;
     }
+
+    [self updateStatusIndicator];
     return self;
 }
 
@@ -74,7 +76,6 @@
     
     [self isStarted];
     [self updateStatusIndicator];
-    [self updateStartStopStatus];
 
 }
 
@@ -98,7 +99,6 @@
     
     [self isStarted];
     [self updateStatusIndicator];
-    [self updateStartStopStatus];
 }
 
 
@@ -119,20 +119,15 @@
             statusImageAccessibilityDescription = NSLocalizedString(@"Running", nil);
             break;
     }
-/*
-    [self.statusIndicator setImage:[NSImage imageNamed:statusImageName]];
-    [self.statusIndicator.cell accessibilitySetOverrideValue:statusImageAccessibilityDescription forAttribute:NSAccessibilityDescriptionAttribute];
-    [self.statusIndicator setNeedsDisplay:YES];
-*/
-}
 
--(void) updateStartStopStatus {
-    if (self.status == 0) {
-        [onOffSwitch setState:NSOffState];
-    } else {
-        [onOffSwitch setState:NSOnState];
-    }
-    [onOffSwitch setNeedsDisplay:YES];
+    NSLog(@"Status: %d; runAsRoot: %d, runAtLogin: %d", self.status, self.service.useSudo, self.service.runAtLogin);
+    [onOffSwitch setState:self.status != 0 ? 1 : 0];
+    [runAsRoot setState:self.service.useSudo ? 1 : 0];
+    [runtAtBoot setState:self.service.runAtLogin ? 1 : 0];
+    
+    [statusIndicator setImage:[NSImage imageNamed:statusImageName]];
+    [statusIndicator.cell accessibilitySetOverrideValue:statusImageAccessibilityDescription forAttribute:NSAccessibilityDescriptionAttribute];
+    [statusIndicator setNeedsDisplay:YES];
 }
 
 - (IBAction) handleStartStopClick:(OnOffSwitchControl *)onOff
@@ -156,7 +151,6 @@
 //    [self.serviceManager saveService:self.service];
     [self start];
     [self isStarted];
-    [self updateStartStopStatus];
     [self updateStatusIndicator];
 }
 

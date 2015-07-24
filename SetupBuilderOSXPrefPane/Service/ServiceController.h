@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 #import "Service.h"
 
 @class OnOffSwitchControl;
@@ -15,6 +16,7 @@
     IBOutlet OnOffSwitchControl *onOffSwitch;
     IBOutlet OnOffSwitchControl *runtAtBoot;
     IBOutlet OnOffSwitchControl *runAsRoot;
+    IBOutlet NSImageView *statusIndicator;
 
 }
 
@@ -28,7 +30,6 @@
 -(void) start;
 -(void) stop;
 -(void) updateStatusIndicator;
--(void) updateStartStopStatus;
 -(void) handleRemoveClick:(id)sender;
 
 - (IBAction) handleStartStopClick:(OnOffSwitchControl *)onOff;

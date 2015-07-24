@@ -24,6 +24,10 @@
 		3066D9D81B60D49400729DB7 /* SetupBuilderOSXPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */; };
 		3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */; };
 		3066D9DD1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3066D9DB1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib */; };
+		30EB7DAA1B621A1C0086A79A /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA61B621A1C0086A79A /* gray.png */; };
+		30EB7DAB1B621A1C0086A79A /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA71B621A1C0086A79A /* green.png */; };
+		30EB7DAC1B621A1C0086A79A /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA81B621A1C0086A79A /* red.png */; };
+		30EB7DAD1B621A1C0086A79A /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 30EB7DA91B621A1C0086A79A /* yellow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupBuilderOSXPrefPane.m; sourceTree = "<group>"; };
 		3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SetupBuilderOSXPrefPane.tiff; sourceTree = "<group>"; };
 		3066D9DC1B60D49400729DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SetupBuilderOSXPrefPane.xib; sourceTree = "<group>"; };
+		30EB7DA61B621A1C0086A79A /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray.png; sourceTree = "<group>"; };
+		30EB7DA71B621A1C0086A79A /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		30EB7DA81B621A1C0086A79A /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		30EB7DA91B621A1C0086A79A /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,10 @@
 		300AAE141B60DF1B00953A78 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				30EB7DA61B621A1C0086A79A /* gray.png */,
+				30EB7DA71B621A1C0086A79A /* green.png */,
+				30EB7DA81B621A1C0086A79A /* red.png */,
+				30EB7DA91B621A1C0086A79A /* yellow.png */,
 				303114CD1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist */,
 				300AAE151B60DF1B00953A78 /* ProductIcon.icns */,
 			);
@@ -214,9 +226,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EB7DAB1B621A1C0086A79A /* green.png in Resources */,
+				30EB7DAD1B621A1C0086A79A /* yellow.png in Resources */,
 				3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */,
 				3066D9DD1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib in Resources */,
+				30EB7DAA1B621A1C0086A79A /* gray.png in Resources */,
 				300AAE291B60E44200953A78 /* sudo.app in Resources */,
+				30EB7DAC1B621A1C0086A79A /* red.png in Resources */,
 				303114CE1B6120950017C421 /* com.inet.pdfc.PDFCServer.plist in Resources */,
 				300AAE161B60DF1B00953A78 /* ProductIcon.icns in Resources */,
 			);
