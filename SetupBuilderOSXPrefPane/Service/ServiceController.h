@@ -20,6 +20,7 @@
 
 @property (strong) Service *service;
 @property (strong) NSFileManager *fm;
+@property (readonly) NSTextField *description;
 
 @property int status;
 

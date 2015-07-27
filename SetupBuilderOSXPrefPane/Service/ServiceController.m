@@ -15,6 +15,7 @@
 
 @synthesize service;
 @synthesize status;
+@synthesize description;
 
 -(BOOL) isStarted {
     

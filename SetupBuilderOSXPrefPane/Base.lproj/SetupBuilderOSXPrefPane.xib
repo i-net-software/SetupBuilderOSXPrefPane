@@ -8,7 +8,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SetupBuilderOSXPrefPane">
             <connections>
                 <outlet property="_window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
-                <outlet property="service" destination="XHp-Yk-UnX" id="P2K-Ax-W86"/>
                 <outlet property="serviceController" destination="lHB-bB-yFt" id="0T9-SS-TcY"/>
             </connections>
         </customObject>
@@ -59,7 +58,7 @@
                             <constraint firstAttribute="height" constant="84" id="lGg-6W-2Bk"/>
                         </constraints>
                         <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="GaO-zy-GXb">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="GaO-zy-GXb">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -101,11 +100,11 @@
         </window>
         <customObject id="lHB-bB-yFt" customClass="ServiceController">
             <connections>
+                <outlet property="description" destination="fSf-Qm-wLU" id="wCB-Gy-0ZJ"/>
                 <outlet property="onOffSwitch" destination="0pt-T0-CY2" id="1vD-Ij-AMp"/>
                 <outlet property="statusIndicator" destination="XQW-yi-ng8" id="x9M-r4-SXv"/>
             </connections>
         </customObject>
-        <customObject id="XHp-Yk-UnX" customClass="Service"/>
     </objects>
     <resources>
         <image name="ProductIcon.icns" width="128" height="128"/>

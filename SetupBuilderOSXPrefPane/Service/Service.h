@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface Service : NSObject
-
 @property (retain) NSURL* plist;
 @property (retain) NSString* identifier;
 @property (retain) NSString* name;
-@property (retain) IBOutlet NSString* description;
+@property (retain) NSString* description;
 
 @property bool useSudo;
 @property bool runAtBoot;

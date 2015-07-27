@@ -26,6 +26,7 @@
 
 - (void)didSelect {
     [serviceController setService:service];
+    [[serviceController description] setStringValue:service.description];
     [serviceController isStarted];
     [serviceController updateStatusIndicator];
 }
