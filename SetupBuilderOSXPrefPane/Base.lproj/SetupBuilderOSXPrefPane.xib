@@ -16,14 +16,14 @@
         <window title="≪ do not localize ≫" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5" userLabel="PrefPane">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="176" y="715" width="668" height="368"/>
+            <rect key="contentRect" x="176" y="715" width="668" height="224"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="668" height="368"/>
+                <rect key="frame" x="0.0" y="-5" width="668" height="224"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gj-zc-lV2">
-                        <rect key="frame" x="20" y="220" width="128" height="128"/>
+                        <rect key="frame" x="20" y="76" width="128" height="128"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="128" id="6am-gd-Eae"/>
                             <constraint firstAttribute="height" constant="128" id="qiJ-Jl-S3e"/>
@@ -32,7 +32,7 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ProductIcon.icns" id="vSY-Z7-aCS"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YSO-gs-n7c">
-                        <rect key="frame" x="166" y="324" width="448" height="24"/>
+                        <rect key="frame" x="166" y="180" width="448" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="vEe-CW-wdG"/>
                         </constraints>
@@ -44,7 +44,7 @@
                         </textFieldCell>
                     </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XQW-yi-ng8">
-                        <rect key="frame" x="632" y="328" width="16" height="16"/>
+                        <rect key="frame" x="632" y="184" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="fcj-QC-8AP"/>
                             <constraint firstAttribute="height" constant="16" id="sqV-BX-1fs"/>
@@ -52,20 +52,20 @@
                         <animations/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="gray.png" id="3s2-3a-d3i"/>
                     </imageView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fSf-Qm-wLU">
-                        <rect key="frame" x="168" y="220" width="482" height="84"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSf-Qm-wLU">
+                        <rect key="frame" x="168" y="76" width="482" height="84"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="84" id="lGg-6W-2Bk"/>
                         </constraints>
                         <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Description" id="GaO-zy-GXb">
+                        <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Description" id="GaO-zy-GXb">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="0pt-T0-CY2" customClass="OnOffSwitchControl">
-                        <rect key="frame" x="32" y="164" width="104" height="36"/>
+                        <rect key="frame" x="32" y="20" width="104" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="104" id="FDR-Cp-8rf"/>
                             <constraint firstAttribute="height" constant="36" id="lOC-VR-79J"/>
@@ -96,7 +96,7 @@
                 </constraints>
                 <animations/>
             </view>
-            <point key="canvasLocation" x="491" y="326"/>
+            <point key="canvasLocation" x="491" y="254"/>
         </window>
         <customObject id="lHB-bB-yFt" customClass="ServiceController">
             <connections>
