@@ -13,9 +13,15 @@
 
 @implementation ServiceController
 
-@synthesize service;
+@synthesize service = _service;
 @synthesize status;
-@synthesize description;
+
+- (void)setService:(Service *)service
+{
+    _service = service;
+    description.stringValue = service.description;
+    productName.stringValue = service.name;
+}
 
 -(BOOL) isStarted {
     

@@ -16,11 +16,11 @@
     IBOutlet OnOffSwitchControl *onOffSwitch;
     IBOutlet NSImageView *statusIndicator;
     IBOutlet NSTextField *description;
+    IBOutlet NSTextField *productName;
 }
 
-@property (strong) Service *service;
+@property (strong, nonatomic) Service *service;
 @property (strong) NSFileManager *fm;
-@property (readonly) NSTextField *description;
 
 @property int status;
 

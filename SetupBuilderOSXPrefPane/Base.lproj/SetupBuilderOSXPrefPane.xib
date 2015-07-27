@@ -58,7 +58,7 @@
                             <constraint firstAttribute="height" constant="84" id="lGg-6W-2Bk"/>
                         </constraints>
                         <animations/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="GaO-zy-GXb">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Description" id="GaO-zy-GXb">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -102,6 +102,7 @@
             <connections>
                 <outlet property="description" destination="fSf-Qm-wLU" id="wCB-Gy-0ZJ"/>
                 <outlet property="onOffSwitch" destination="0pt-T0-CY2" id="1vD-Ij-AMp"/>
+                <outlet property="productName" destination="YSO-gs-n7c" id="Adu-8Q-KJy"/>
                 <outlet property="statusIndicator" destination="XQW-yi-ng8" id="x9M-r4-SXv"/>
             </connections>
         </customObject>
