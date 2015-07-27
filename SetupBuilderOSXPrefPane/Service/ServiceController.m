@@ -21,6 +21,8 @@
     _service = service;
     description.stringValue = service.description;
     productName.stringValue = service.name;
+    productVersion.stringValue = [NSString stringWithFormat:@"v: %@", service.version];
+    uninstall.title = @"Uninstall";
 }
 
 -(BOOL) isStarted {

@@ -13,6 +13,7 @@
 @property (retain) NSString* identifier;
 @property (retain) NSString* name;
 @property (retain) NSString* description;
+@property (retain) NSString* version;
 
 @property bool useSudo;
 @property bool runAtBoot;

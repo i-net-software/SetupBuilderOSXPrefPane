@@ -17,6 +17,8 @@
     IBOutlet NSImageView *statusIndicator;
     IBOutlet NSTextField *description;
     IBOutlet NSTextField *productName;
+    IBOutlet NSTextField *productVersion;
+    IBOutlet NSButton *uninstall;
 }
 
 @property (strong, nonatomic) Service *service;

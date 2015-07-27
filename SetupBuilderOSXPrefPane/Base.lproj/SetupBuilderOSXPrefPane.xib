@@ -79,6 +79,27 @@
                             <action selector="handleStartStopClick:" target="lHB-bB-yFt" id="uUu-My-OJD"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDQ-qs-DvU">
+                        <rect key="frame" x="572" y="21" width="82" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EaU-9B-7QM">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nGA-0N-RDv">
+                        <rect key="frame" x="30" y="58" width="108" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="104" id="9bj-Vj-YmZ"/>
+                            <constraint firstAttribute="height" constant="17" id="frP-9J-Ulx"/>
+                        </constraints>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="v" id="Fbd-e7-JIA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="XQW-yi-ng8" firstAttribute="leading" secondItem="YSO-gs-n7c" secondAttribute="trailing" constant="20" id="2au-9i-Q3G"/>
@@ -88,8 +109,10 @@
                     <constraint firstItem="fSf-Qm-wLU" firstAttribute="top" secondItem="YSO-gs-n7c" secondAttribute="bottom" constant="20" id="LYZ-8F-mub"/>
                     <constraint firstAttribute="trailing" secondItem="fSf-Qm-wLU" secondAttribute="trailing" constant="20" id="RFD-q6-K1W"/>
                     <constraint firstItem="0pt-T0-CY2" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="32" id="T0R-Wp-s61"/>
+                    <constraint firstItem="0pt-T0-CY2" firstAttribute="top" secondItem="nGA-0N-RDv" secondAttribute="bottom" constant="2" id="UFe-cD-EWk"/>
                     <constraint firstItem="YSO-gs-n7c" firstAttribute="leading" secondItem="0gj-zc-lV2" secondAttribute="trailing" constant="20" id="aee-GW-a6H"/>
                     <constraint firstItem="YSO-gs-n7c" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" id="cQp-zt-lb8"/>
+                    <constraint firstItem="nGA-0N-RDv" firstAttribute="leading" secondItem="0pt-T0-CY2" secondAttribute="trailing" constant="-104" id="fQI-yy-hyK"/>
                     <constraint firstItem="XQW-yi-ng8" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="24" id="meH-ae-iDp"/>
                     <constraint firstItem="fSf-Qm-wLU" firstAttribute="leading" secondItem="0gj-zc-lV2" secondAttribute="trailing" constant="22" id="uNK-u7-Fv0"/>
                     <constraint firstItem="0pt-T0-CY2" firstAttribute="top" secondItem="0gj-zc-lV2" secondAttribute="bottom" constant="20" id="upt-Oq-4Wu"/>
@@ -103,7 +126,9 @@
                 <outlet property="description" destination="fSf-Qm-wLU" id="wCB-Gy-0ZJ"/>
                 <outlet property="onOffSwitch" destination="0pt-T0-CY2" id="1vD-Ij-AMp"/>
                 <outlet property="productName" destination="YSO-gs-n7c" id="Adu-8Q-KJy"/>
+                <outlet property="productVersion" destination="nGA-0N-RDv" id="EKs-jJ-tR7"/>
                 <outlet property="statusIndicator" destination="XQW-yi-ng8" id="x9M-r4-SXv"/>
+                <outlet property="uninstall" destination="QDQ-qs-DvU" id="dCA-7y-heN"/>
             </connections>
         </customObject>
     </objects>

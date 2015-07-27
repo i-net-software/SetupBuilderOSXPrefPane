@@ -16,6 +16,7 @@
 @synthesize useSudo;
 @synthesize runAtBoot;
 @synthesize description;
+@synthesize version;
 
 - (id) initWithPlistURL:(NSURL *)plistURL
 {
@@ -41,6 +42,7 @@
     }
 
     description = [plistData objectForKey:@"Description"];
+    version = [plistData objectForKey:@"Version"];
     return self;
 }
 

@@ -16,5 +16,7 @@
 	<true/>
 	<key>Description</key>
 	<string>This is the description of the current product. </string>
+	<key>Version</key>
+	<string>4.0.123</string>
 </dict>
 </plist>
