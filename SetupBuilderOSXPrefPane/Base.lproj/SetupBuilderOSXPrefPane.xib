@@ -86,6 +86,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="handleUninstallClick:" target="lHB-bB-yFt" id="S2O-Rh-RjQ"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nGA-0N-RDv">
                         <rect key="frame" x="30" y="58" width="108" height="17"/>

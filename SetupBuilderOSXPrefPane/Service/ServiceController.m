@@ -122,4 +122,16 @@
     }
 }
 
+- (IBAction) handleUninstallClick:(NSButton *)button {
+    
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Do you realy want to remove THE PRODUCT?" defaultButton:@"OK" alternateButton:@"Cancel" otherButton:NULL informativeTextWithFormat:@"This will remove THE PRODUCT and the preferecene pane"];
+    
+    if ( [alert runModal] == NSAlertDefaultReturn ) {
+
+        [self stop];
+        
+        // Uninstall
+    }
+}
+
 @end

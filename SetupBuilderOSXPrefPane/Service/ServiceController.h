@@ -32,5 +32,6 @@
 -(void) updateStatusIndicator;
 
 - (IBAction) handleStartStopClick:(OnOffSwitchControl *)onOff;
+- (IBAction) handleUninstallClick:(NSButton *)button;
 
 @end
