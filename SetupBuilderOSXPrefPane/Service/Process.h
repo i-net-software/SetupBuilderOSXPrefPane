@@ -16,4 +16,6 @@
 -(NSString *) execute:(NSString *)command;
 -(NSString *) executeSudo:(NSString *)command;
 +(void) killSudoHelper;
++(NSString *)executableSudoName;
+
 @end
