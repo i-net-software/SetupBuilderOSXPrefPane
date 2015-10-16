@@ -2,21 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Name</key>
-	<string>PDFC-Server</string>
+	<key>Description</key>
+	<string>application.description</string>
 	<key>KeepAlive</key>
 	<true/>
 	<key>Label</key>
-	<string>com.inet.pdfc.PDFCServer</string>
+	<string>application.label</string>
+	<key>Name</key>
+	<string>application name</string>
 	<key>Program</key>
-	<string>/Library/pdfc-server/pdfc-server.app/Contents/MacOS/pdfc-server</string>
+	<string>application.app</string>
 	<key>RunAsRoot</key>
 	<true/>
 	<key>RunAtBoot</key>
 	<true/>
-	<key>Description</key>
-	<string>This is the description of the current product. </string>
+	<key>RunAtLoad</key>
+	<true/>
 	<key>Version</key>
-	<string>4.0.123</string>
+	<string>1.0.0</string>
 </dict>
 </plist>
