@@ -14,6 +14,7 @@
 @property (retain) NSString* name;
 @property (retain) NSString* description;
 @property (retain) NSString* version;
+@property (retain) NSString* program;
 
 @property bool useSudo;
 @property bool runAtBoot;
@@ -21,5 +22,6 @@
 
 - (id) initWithPlistURL:(NSURL *)plistURL;
 - (NSString *)pathForService;
+- (BOOL) isServiceRunning;
 
 @end

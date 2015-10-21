@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class Service;
 @interface Process : NSObject
 
 @property AuthorizationRef authref;
@@ -17,5 +18,7 @@
 -(NSString *) executeSudo:(NSString *)command;
 +(void) killSudoHelper;
 +(NSString *)executableSudoName;
++(NSArray*)getBSDProcessList;
++(NSDictionary*)getProcessByService:(Service *)service;
 
 @end

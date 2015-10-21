@@ -7,6 +7,7 @@
 //
 
 #import "Service.h"
+#import "Process.h"
 
 @implementation Service
 
@@ -17,6 +18,7 @@
 @synthesize runAtBoot;
 @synthesize description;
 @synthesize version;
+@synthesize program;
 
 - (id) initWithPlistURL:(NSURL *)plistURL
 {
@@ -43,6 +45,7 @@
 
     description = [plistData objectForKey:@"Description"];
     version = [plistData objectForKey:@"Version"];
+    program = [plistData objectForKey:@"Program"];
     return self;
 }
 
@@ -60,6 +63,10 @@
     
     NSLog(@"Path for service: %@", plistFile);
     return plistFile;
+}
+
+- (BOOL) isServiceRunning {
+    return [Process getProcessByService:self] != nil;
 }
 
 @end
