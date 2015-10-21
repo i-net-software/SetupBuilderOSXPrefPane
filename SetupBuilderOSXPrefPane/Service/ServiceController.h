@@ -19,19 +19,32 @@
     IBOutlet NSTextField *productName;
     IBOutlet NSTextField *productVersion;
     IBOutlet NSButton *uninstall;
+    IBOutlet NSButton *startPage;
 }
+
+typedef enum {
+
+    SERVICE_STOPPED = 0,
+    SERVICE_RUNNING,
+    SERVICE_STARTING,
+    SERVICE_STOPPING
+    
+} SERVICE_STATUS;
+
 
 @property (strong, nonatomic) Service *service;
 @property (strong) NSFileManager *fm;
 
-@property int status;
+@property SERVICE_STATUS status;
 
--(BOOL) isStarted;
 -(void) start;
 -(void) stop;
+-(BOOL) serviceStatusChanged;
 -(void) updateStatusIndicator;
+-(void)pollStatus;
 
 - (IBAction) handleStartStopClick:(OnOffSwitchControl *)onOff;
 - (IBAction) handleUninstallClick:(NSButton *)button;
+- (IBAction) handleStartPageClick:(NSButton *)button;
 
 @end
