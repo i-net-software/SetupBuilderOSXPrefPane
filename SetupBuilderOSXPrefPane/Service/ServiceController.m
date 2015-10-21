@@ -27,6 +27,7 @@ NSTimer *timer;
     uninstall.title = @"Uninstall";
     
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollStatus) userInfo:nil repeats:true];
+    [timer setTolerance:1.0];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSEventTrackingRunLoopMode];
 }
 
