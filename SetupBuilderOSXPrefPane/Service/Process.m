@@ -28,28 +28,30 @@
     return sudoName;
 }
 
--(NSString *) execute:(NSString *)command {
-    NSLog(@"%@%@", @"Executing command: ", command);
+-(NSString *)execIntermediate:(NSString *)command asRoot:(BOOL)root {
+    
+    NSLog(@"Executing command: %@", command);
     
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@/%@.app", [[NSBundle bundleForClass:[self class]] resourcePath], [Process executableSudoName]];
-    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec(\"%@\")\n end tell\n", sudoHelperPath, command];
+    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec%@(\"%@\")\n end tell\n", sudoHelperPath, root ? @"sudo" : @"", command];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
     NSDictionary *error;
     NSString *output = [[script executeAndReturnError:&error] stringValue];
-    NSLog(@"Result of `%@` was %@", command, output);
+    NSLog(@"Result of `%@` was %@", scriptSource, output);
+    
+    if ( error != nil ) {
+        NSLog(@"An Error occurred: %@", error);
+    }
+        
     return output;
 }
 
--(NSString *) executeSudo:(NSString *)command {
-    NSLog(@"%@%@", @"Executing command with sudo: ", command);
+-(NSString *) execute:(NSString *)command {
+    return [self execIntermediate:command asRoot:NO];
+}
 
-    NSString *sudoHelperPath = [NSString stringWithFormat:@"%@/%@.app", [[NSBundle bundleForClass:[self class]] resourcePath], [Process executableSudoName]];
-    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n execsudo(\"%@\")\n end tell\n", sudoHelperPath, command];
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
-    NSDictionary *error;
-    NSString *output = [[script executeAndReturnError:&error] stringValue];
-    NSLog(@"Result of `sudo %@` was %@", command, output);
-    return output;
+-(NSString *) executeSudo:(NSString *)command {
+    return [self execIntermediate:command asRoot:YES];
 }
 
 +(void) killSudoHelper {
