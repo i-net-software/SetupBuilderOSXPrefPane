@@ -73,8 +73,8 @@ NSTimer *timer;
     [self updateStatusIndicator];
     
     Process *p = [[Process alloc] init];
-    NSString *runCommand = [NSString stringWithFormat:@"/bin/launchctl unload %@", [self.service pathForService]];
-    NSString *cleanupCommand = [NSString stringWithFormat:@"rm %@", [self.service pathForService]];
+    NSString *runCommand = [NSString stringWithFormat:@"/bin/launchctl unload \\\"%@\\\"", [self.service pathForService]];
+    NSString *cleanupCommand = [NSString stringWithFormat:@"rm \\\"%@\\\"", [self.service pathForService]];
 
     if (self.service.useSudo) {
         [p executeSudo:runCommand];
@@ -90,8 +90,10 @@ NSTimer *timer;
     [self updateStatusIndicator];
     
     Process *p = [[Process alloc] init];
-    NSString *copyCommand = [NSString stringWithFormat:@"cp %s %@", [self.service.plist fileSystemRepresentation], [self.service pathForService]];
-    NSString *runCommand = [NSString stringWithFormat:@"/bin/launchctl load %@", [self.service pathForService]];
+    
+    NSString *source = [NSString stringWithUTF8String:[self.service.plist fileSystemRepresentation]];
+    NSString *copyCommand = [NSString stringWithFormat:@"ln \\\"%@\\\" \\\"%@\\\"", source, [self.service pathForService]];
+    NSString *runCommand = [NSString stringWithFormat:@"/bin/launchctl load \\\"%@\\\"", [self.service pathForService]];
 
     if (self.service.useSudo) {
         [p executeSudo:copyCommand];
