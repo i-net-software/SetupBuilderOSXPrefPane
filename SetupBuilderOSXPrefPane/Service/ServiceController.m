@@ -141,8 +141,22 @@ NSTimer *timer;
         // Sending action
         NSLog(@"Executing action: %@", action);
         Process *p = [[Process alloc] init];
-        [p execute:action];
+        [p execute:[NSString stringWithFormat:@"cd \"%@\"; %@", [self bundlePath],action]]; // go into working directory and then execute.
     }
+}
+
+- (NSString *)bundlePath {
+    
+    // Bundle of this current Pref-App
+    NSString *bundle = [[[[NSBundle bundleForClass:[self class]] bundleURL] URLByResolvingSymlinksInPath] path];
+    NSString *parentApp = [[bundle stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
+    
+    // Check if this inside another container that has the same name
+    NSLog(@"Bundle Path: %@", bundle);
+    NSLog(@"Bundle Pure Name: %@", [[bundle stringByDeletingPathExtension] lastPathComponent]);
+    NSLog(@"Parent App Path: %@", parentApp);
+    
+    return [[[bundle stringByDeletingPathExtension] lastPathComponent] isEqualToString:[[parentApp stringByDeletingPathExtension] lastPathComponent]] ? parentApp : bundle;
 }
 
 -(void)pollStatus {
