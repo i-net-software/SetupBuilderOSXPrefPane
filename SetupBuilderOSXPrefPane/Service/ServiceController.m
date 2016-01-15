@@ -149,7 +149,7 @@ NSTimer *timer;
     
     // Bundle of this current Pref-App
     NSString *bundle = [[[[NSBundle bundleForClass:[self class]] bundleURL] URLByResolvingSymlinksInPath] path];
-    NSString *parentApp = [[bundle stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
+    NSString *parentApp = [[[bundle stringByDeletingLastPathComponent] stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
     
     // Check if this inside another container that has the same name
     NSLog(@"Bundle Path: %@", bundle);
