@@ -20,5 +20,14 @@
 	<true/>
 	<key>Version</key>
 	<string>1.0.0</string>
+	<key>starter</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Test Link</string>
+			<key>action</key>
+			<string>echo &quot;Hello World&quot;</string>
+		</dict>
+	</array>
 </dict>
 </plist>

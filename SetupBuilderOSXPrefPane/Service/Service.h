@@ -15,6 +15,7 @@
 @property (retain) NSString* description;
 @property (retain) NSString* version;
 @property (retain) NSString* program;
+@property (retain) NSArray*  starter;
 
 @property bool useSudo;
 @property bool runAtBoot;

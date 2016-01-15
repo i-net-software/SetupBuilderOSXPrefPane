@@ -18,8 +18,8 @@
     IBOutlet NSTextField *description;
     IBOutlet NSTextField *productName;
     IBOutlet NSTextField *productVersion;
+    IBOutlet NSStackView *actionList;
     IBOutlet NSButton *uninstall;
-    IBOutlet NSButton *startPage;
 }
 
 typedef enum {
@@ -41,10 +41,9 @@ typedef enum {
 -(void) stop;
 -(BOOL) serviceStatusChanged;
 -(void) updateStatusIndicator;
--(void)pollStatus;
+-(void) pollStatus;
 
 - (IBAction) handleStartStopClick:(OnOffSwitchControl *)onOff;
 - (IBAction) handleUninstallClick:(NSButton *)button;
-- (IBAction) handleStartPageClick:(NSButton *)button;
 
 @end

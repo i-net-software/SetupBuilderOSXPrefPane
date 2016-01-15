@@ -32,6 +32,8 @@
     
     NSLog(@"Executing command: %@", command);
     
+    // Escape
+    command = [command stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@/%@.app", [[NSBundle bundleForClass:[self class]] resourcePath], [Process executableSudoName]];
     NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec%@(\"%@\")\n end tell\n", sudoHelperPath, root ? @"sudo" : @"", command];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];

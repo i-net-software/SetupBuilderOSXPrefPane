@@ -19,6 +19,7 @@
 @synthesize description;
 @synthesize version;
 @synthesize program;
+@synthesize starter;
 
 - (id) initWithPlistURL:(NSURL *)plistURL
 {
@@ -46,6 +47,7 @@
     description = [plistData objectForKey:@"Description"];
     version = [plistData objectForKey:@"Version"];
     program = [plistData objectForKey:@"Program"];
+    starter = [plistData objectForKey:@"starter"]; // List of starter actions for the pref pane
     return self;
 }
 
@@ -68,5 +70,7 @@
 - (BOOL) isServiceRunning {
     return [Process getProcessByService:self] != nil;
 }
+
+
 
 @end

@@ -29,6 +29,32 @@ NSTimer *timer;
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollStatus) userInfo:nil repeats:true];
     [timer setTolerance:1.0];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSEventTrackingRunLoopMode];
+    
+    for ( NSDictionary *starter in [service starter] ) {
+        
+        NSString *title = [starter valueForKey:@"title"];
+        NSString *action = [starter valueForKey:@"action"];
+        if ( title == nil || action == nil ) { continue; }
+        
+        NSButton *button = [[NSButton alloc] init];
+        button.title = title;
+
+        NSColor *color = [NSColor blueColor];
+        NSMutableAttributedString *colorTitle = [[NSMutableAttributedString alloc] initWithAttributedString:[button attributedTitle]];
+        NSRange titleRange = NSMakeRange(0, [colorTitle length]);
+        [colorTitle addAttribute:NSForegroundColorAttributeName value:color range:titleRange];
+        [colorTitle addAttribute:NSUnderlineColorAttributeName value:color range:titleRange];
+        [colorTitle addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:titleRange];
+        [button setAttributedTitle:colorTitle];
+        
+        [button setShowsBorderOnlyWhileMouseInside:YES];
+        [button setBordered:YES];
+        [button setBezelStyle:NSRecessedBezelStyle];
+        [button setButtonType:NSMomentaryPushInButton];
+        [button setTarget:self];
+        [button setAction:@selector(buttonAction:)];
+        [actionList addArrangedSubview:button];
+    }
 }
 
 -(BOOL) serviceStatusChanged {
@@ -104,6 +130,21 @@ NSTimer *timer;
     }
 }
 
+-(void)buttonAction:(NSButton *)button {
+    
+    for ( NSDictionary *starter in [_service starter] ) {
+        
+        NSString *title = [starter valueForKey:@"title"];
+        NSString *action = [starter valueForKey:@"action"];
+        if ( ![title isEqualToString:button.title] ) { continue; }
+        
+        // Sending action
+        NSLog(@"Executing action: %@", action);
+        Process *p = [[Process alloc] init];
+        [p execute:action];
+    }
+}
+
 -(void)pollStatus {
     if ( [self serviceStatusChanged] ) {
         [self updateStatusIndicator];
@@ -159,9 +200,6 @@ NSTimer *timer;
     }
 }
 
-- (void)handleStartPageClick:(NSButton *)button {
-    
-}
 @end
 
 
