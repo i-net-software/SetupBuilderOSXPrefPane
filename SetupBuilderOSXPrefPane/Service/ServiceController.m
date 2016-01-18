@@ -135,13 +135,19 @@ NSTimer *timer;
     for ( NSDictionary *starter in [_service starter] ) {
         
         NSString *title = [starter valueForKey:@"title"];
-        NSString *action = [starter valueForKey:@"action"];
+        NSString *action = [NSString stringWithFormat:@"cd \"%@\"; %@", [self bundlePath], [starter valueForKey:@"action"]];
+        BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
         if ( ![title isEqualToString:button.title] ) { continue; }
         
         // Sending action
         NSLog(@"Executing action: %@", action);
         Process *p = [[Process alloc] init];
-        [p execute:[NSString stringWithFormat:@"cd \"%@\"; %@", [self bundlePath],action]]; // go into working directory and then execute.
+
+        if ( asRoot ) {
+            [p executeSudo:action]; // go into working directory and then execute.
+        } else {
+            [p execute:action]; // go into working directory and then execute.
+        }
     }
 }
 
