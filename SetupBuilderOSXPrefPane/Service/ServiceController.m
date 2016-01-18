@@ -29,22 +29,37 @@ NSTimer *timer;
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollStatus) userInfo:nil repeats:true];
     [timer setTolerance:1.0];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSEventTrackingRunLoopMode];
-    
+
+    NSString *asRootString = @" (runs as root)";
     for ( NSDictionary *starter in [service starter] ) {
         
-        NSString *title = [starter valueForKey:@"title"];
         NSString *action = [starter valueForKey:@"action"];
+        NSString *title = [starter valueForKey:@"title"];
         if ( title == nil || action == nil ) { continue; }
+        
+        BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
+        if ( asRoot ) {
+            title = [title stringByAppendingString:asRootString];
+        }
         
         NSButton *button = [[NSButton alloc] init];
         button.title = title;
 
         NSColor *color = [NSColor blueColor];
         NSMutableAttributedString *colorTitle = [[NSMutableAttributedString alloc] initWithAttributedString:[button attributedTitle]];
+//        NSLog(@"title: %@", colorTitle);
+
         NSRange titleRange = NSMakeRange(0, [colorTitle length]);
         [colorTitle addAttribute:NSForegroundColorAttributeName value:color range:titleRange];
         [colorTitle addAttribute:NSUnderlineColorAttributeName value:color range:titleRange];
         [colorTitle addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:titleRange];
+/*
+        if ( asRoot ) {
+            titleRange = NSMakeRange([colorTitle length] - [asRootString length], [colorTitle length]);
+            [colorTitle addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:titleRange];
+            [colorTitle addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleNone] range:titleRange];
+        }
+*/
         [button setAttributedTitle:colorTitle];
         
         [button setShowsBorderOnlyWhileMouseInside:YES];

@@ -28,6 +28,14 @@
 			<key>action</key>
 			<string>echo &quot;Hello World&quot;</string>
 		</dict>
+		<dict>
+			<key>asroot</key>
+			<true/>
+			<key>title</key>
+			<string>Test Link</string>
+			<key>action</key>
+			<string>echo &quot;Hello World&quot;</string>
+		</dict>
 	</array>
 </dict>
 </plist>
