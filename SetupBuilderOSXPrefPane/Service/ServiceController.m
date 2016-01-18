@@ -127,7 +127,7 @@ NSTimer *timer;
         [p executeSudo:cleanupCommand];
     } else {
         [p execute:runCommand];
-        [p executeSudo:cleanupCommand];
+        [p execute:cleanupCommand];
     }
 }
 
