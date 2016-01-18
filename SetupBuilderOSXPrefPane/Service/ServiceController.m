@@ -147,11 +147,16 @@ NSTimer *timer;
 
 -(void)buttonAction:(NSButton *)button {
     
+    NSString *asRootString = @" (runs as root)";
     for ( NSDictionary *starter in [_service starter] ) {
         
         NSString *title = [starter valueForKey:@"title"];
         NSString *action = [NSString stringWithFormat:@"cd \"%@\"; %@", [self bundlePath], [starter valueForKey:@"action"]];
         BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
+        if ( asRoot ) {
+            title = [title stringByAppendingString:asRootString];
+        }
+
         if ( ![title isEqualToString:button.title] ) { continue; }
         
         // Sending action
