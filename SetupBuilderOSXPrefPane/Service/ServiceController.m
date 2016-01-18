@@ -30,6 +30,11 @@ NSTimer *timer;
     [timer setTolerance:1.0];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSEventTrackingRunLoopMode];
 
+    // Clear list
+    [[actionList arrangedSubviews] enumerateObjectsUsingBlock:^(NSView *view, NSUInteger idx, BOOL *stop){
+        [view removeFromSuperview];
+    }];
+    
     NSString *asRootString = @" (runs as root)";
     for ( NSDictionary *starter in [service starter] ) {
         
@@ -147,11 +152,13 @@ NSTimer *timer;
 
 -(void)buttonAction:(NSButton *)button {
     
+    NSLog(@"CLICK %@", button);
+    
     NSString *asRootString = @" (runs as root)";
     for ( NSDictionary *starter in [_service starter] ) {
         
         NSString *title = [starter valueForKey:@"title"];
-        NSString *action = [NSString stringWithFormat:@"cd \"%@\"; %@", [self bundlePath], [starter valueForKey:@"action"]];
+        NSString *action = [NSString stringWithFormat:@"cd \"%@\"; %@", [self currentBundlePath], [starter valueForKey:@"action"]];
         BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
         if ( asRoot ) {
             title = [title stringByAppendingString:asRootString];
@@ -171,7 +178,7 @@ NSTimer *timer;
     }
 }
 
-- (NSString *)bundlePath {
+- (NSString *)currentBundlePath {
     
     // Bundle of this current Pref-App
     NSString *bundle = [[[[NSBundle bundleForClass:[self class]] bundleURL] URLByResolvingSymlinksInPath] path];
