@@ -49,7 +49,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "rm -R &quot;$USER_LIBRARY_DIR/PreferencePanes/$FULL_PRODUCT_NAME&quot;&#10;cp -a &quot;$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME&quot; &quot;$USER_LIBRARY_DIR/PreferencePanes/&quot;">
+               scriptText = "rm -R &quot;$USER_LIBRARY_DIR/PreferencePanes/$FULL_PRODUCT_NAME&quot;&#10;ln -s &quot;$TARGET_BUILD_DIR/$FULL_PRODUCT_NAME&quot; &quot;$USER_LIBRARY_DIR/PreferencePanes/&quot;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
