@@ -24,7 +24,7 @@ NSTimer *timer;
     description.stringValue = service.description;
     productName.stringValue = service.name;
     productVersion.stringValue = [NSString stringWithFormat:@"v: %@", service.version];
-    uninstall.title = @"Uninstall";
+    uninstall.title = NSLocalizedStringFromTableInBundle(@"Uninstall", NULL, [NSBundle bundleForClass:[self class]], NULL);
     
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollStatus) userInfo:nil repeats:true];
     [timer setTolerance:1.0];
@@ -35,7 +35,7 @@ NSTimer *timer;
         [view removeFromSuperview];
     }];
     
-    NSString *asRootString = @" (runs as root)";
+    NSString *asRootString = NSLocalizedString(@"runAsRoot", NULL);
     for ( NSDictionary *starter in [service starter] ) {
         
         NSString *action = [starter valueForKey:@"action"];
@@ -235,13 +235,19 @@ NSTimer *timer;
 
 - (IBAction) handleUninstallClick:(NSButton *)button {
     
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Do you realy want to remove THE PRODUCT?" defaultButton:@"OK" alternateButton:@"Cancel" otherButton:NULL informativeTextWithFormat:@"This will remove THE PRODUCT and the preferecene pane"];
+    NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedStringFromTableInBundle(@"willUninstall", NULL, [NSBundle bundleForClass:[self class]], NULL) defaultButton:NSLocalizedStringFromTableInBundle(@"OK", NULL, [NSBundle bundleForClass:[self class]], NULL) alternateButton:NSLocalizedStringFromTableInBundle(@"Cancel", NULL, [NSBundle bundleForClass:[self class]], NULL) otherButton:NULL informativeTextWithFormat:NSLocalizedStringFromTableInBundle(@"informativeUninstall", NULL, [NSBundle bundleForClass:[self class]], NULL)];
     
     if ( [alert runModal] == NSAlertDefaultReturn ) {
-
-        [self stop];
         
-        // Uninstall
+        // Everything goes down the drain now!
+        Process *p = [[Process alloc] init];
+        [NSSearchPathForDirectoriesInDomains(NSPreferencePanesDirectory, NSAllDomainsMask, YES) enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop){
+            NSString *prefPane = [path stringByAppendingPathComponent:[[[NSBundle bundleForClass:[self class]] bundlePath] lastPathComponent]];
+            if ( [[NSFileManager defaultManager] fileExistsAtPath:path] ) {
+                [p executeSudo:[NSString stringWithFormat:@"rm %@", prefPane]];
+                *stop = YES;
+            }
+        }];
     }
 }
 
