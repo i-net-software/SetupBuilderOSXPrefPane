@@ -18,13 +18,15 @@
 
 NSTimer *timer;
 
+#define localized(name) NSLocalizedStringFromTableInBundle(name, @"Strings", [NSBundle bundleForClass:[self class]], NULL)
+
 - (void)setService:(Service *)service
 {
     _service = service;
     description.stringValue = service.description;
     productName.stringValue = service.name;
     productVersion.stringValue = [NSString stringWithFormat:@"v: %@", service.version];
-    uninstall.title = NSLocalizedStringFromTableInBundle(@"Uninstall", NULL, [NSBundle bundleForClass:[self class]], NULL);
+    uninstall.title = localized(@"Uninstall");
     
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollStatus) userInfo:nil repeats:true];
     [timer setTolerance:1.0];
@@ -35,7 +37,7 @@ NSTimer *timer;
         [view removeFromSuperview];
     }];
     
-    NSString *asRootString = NSLocalizedString(@"runAsRoot", NULL);
+    NSString *asRootString = localized(@"runAsRoot");
     for ( NSDictionary *starter in [service starter] ) {
         
         NSString *action = [starter valueForKey:@"action"];
@@ -152,7 +154,7 @@ NSTimer *timer;
 
 -(void)buttonAction:(NSButton *)button {
     
-    NSString *asRootString = @" (runs as root)";
+    NSString *asRootString = localized(@"runAsRoot");
     for ( NSDictionary *starter in [_service starter] ) {
         
         NSString *title = [starter valueForKey:@"title"];
@@ -169,9 +171,9 @@ NSTimer *timer;
         Process *p = [[Process alloc] init];
 
         if ( asRoot ) {
-            [p executeSudo:action]; // go into working directory and then execute.
+            [p executeAsyncSudo:action]; // go into working directory and then execute.
         } else {
-            [p execute:action]; // go into working directory and then execute.
+            [p executeAsync:action]; // go into working directory and then execute.
         }
     }
 }
@@ -204,15 +206,15 @@ NSTimer *timer;
         case SERVICE_STARTING:
         case SERVICE_STOPPING:
             statusImageName = @"yellow";
-            statusImageAccessibilityDescription = NSLocalizedString(@"Starting or stopping", nil);
+            statusImageAccessibilityDescription = localized(@"Starting or stopping");
             break;
         case SERVICE_STOPPED:
             statusImageName = @"red";
-            statusImageAccessibilityDescription = NSLocalizedString(@"Not running", nil);
+            statusImageAccessibilityDescription = localized(@"Not running");
             break;
         case SERVICE_RUNNING:
             statusImageName = @"green";
-            statusImageAccessibilityDescription = NSLocalizedString(@"Running", nil);
+            statusImageAccessibilityDescription = localized(@"Running");
             break;
     }
 
@@ -234,8 +236,8 @@ NSTimer *timer;
 }
 
 - (IBAction) handleUninstallClick:(NSButton *)button {
-    
-    NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedStringFromTableInBundle(@"willUninstall", NULL, [NSBundle bundleForClass:[self class]], NULL) defaultButton:NSLocalizedStringFromTableInBundle(@"OK", NULL, [NSBundle bundleForClass:[self class]], NULL) alternateButton:NSLocalizedStringFromTableInBundle(@"Cancel", NULL, [NSBundle bundleForClass:[self class]], NULL) otherButton:NULL informativeTextWithFormat:NSLocalizedStringFromTableInBundle(@"informativeUninstall", NULL, [NSBundle bundleForClass:[self class]], NULL)];
+
+    NSAlert *alert = [NSAlert alertWithMessageText:localized(@"willUninstall") defaultButton:localized(@"OK") alternateButton:localized(@"Cancel") otherButton:NULL informativeTextWithFormat:localized(@"informativeUninstall")];
     
     if ( [alert runModal] == NSAlertDefaultReturn ) {
         
@@ -243,8 +245,8 @@ NSTimer *timer;
         Process *p = [[Process alloc] init];
         [NSSearchPathForDirectoriesInDomains(NSPreferencePanesDirectory, NSAllDomainsMask, YES) enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop){
             NSString *prefPane = [path stringByAppendingPathComponent:[[[NSBundle bundleForClass:[self class]] bundlePath] lastPathComponent]];
-            if ( [[NSFileManager defaultManager] fileExistsAtPath:path] ) {
-                [p executeSudo:[NSString stringWithFormat:@"rm %@", prefPane]];
+            if ( [[NSFileManager defaultManager] fileExistsAtPath:prefPane] ) {
+                [p executeSudo:[NSString stringWithFormat:@"rm \"%@\"", prefPane]];
                 *stop = YES;
             }
         }];
