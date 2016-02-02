@@ -16,6 +16,9 @@
 
 -(NSString *) execute:(NSString *)command;
 -(NSString *) executeSudo:(NSString *)command;
+-(NSString *) executeAsync:(NSString *)command;
+-(NSString *) executeAsyncSudo:(NSString *)command;
+
 +(void) killSudoHelper;
 +(NSString *)executableSudoName;
 +(NSArray*)getBSDProcessList;

@@ -13,6 +13,7 @@
 #import "Process.h"
 #import "Service.h"
 
+NSTask *task = nil;
 @implementation Process
 
 + (NSString *)executableSudoName
@@ -28,40 +29,81 @@
     return sudoName;
 }
 
--(NSString *)execIntermediate:(NSString *)command asRoot:(BOOL)root {
-    
-    NSLog(@"Executing command: %@", command);
+-(NSString *)command:(NSString *)command asRoot:(BOOL)root {
     
     // Escape
     command = [command stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@/%@.app", [[NSBundle bundleForClass:[self class]] resourcePath], [Process executableSudoName]];
     NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec%@(\"%@\")\n end tell\n", sudoHelperPath, root ? @"sudo" : @"", command];
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
-    NSDictionary *error;
-    NSString *output = [[script executeAndReturnError:&error] stringValue];
-    NSLog(@"Result of `%@` was %@", scriptSource, output);
     
-    if ( error != nil ) {
-        NSLog(@"An Error occurred: %@", error);
+    return scriptSource;
+}
+
+-(NSString *)execIntermediate:(NSString *)command asRoot:(BOOL)root async:(BOOL)async {
+    
+    NSString *scriptSource = [self command:command asRoot:root];
+    NSLog(@"Executing command via NSTask: %@", scriptSource);
+
+    if ( task != nil ) {
+        [task terminate];
     }
-        
-    return output;
+    
+    NSPipe *output = [NSPipe pipe];
+    task = [[NSTask alloc] init];
+    task.launchPath = @"/usr/bin/osascript";
+    task.arguments = @[@"-e", scriptSource];
+    
+    [task setStandardError:output];
+    [task setStandardOutput:output];
+    [task setTerminationHandler:^(NSTask *task){
+        const char *result = [[output.fileHandleForReading readDataToEndOfFile] bytes];
+        NSLog(@"Result of `%@` was %@", scriptSource, result!=NULL?[NSString stringWithUTF8String:result]:@"NULL");
+        task = nil;
+    }];
+    
+    [task launch];
+    if ( !async ) {
+        [task waitUntilExit];
+        const char *result = [[output.fileHandleForReading readDataToEndOfFile] bytes];
+        return result!=NULL?[NSString stringWithUTF8String:result]:@"";
+    }
+
+    return @"";
 }
 
 -(NSString *) execute:(NSString *)command {
-    return [self execIntermediate:command asRoot:NO];
+    return [self execIntermediate:command asRoot:NO async:NO];
 }
 
 -(NSString *) executeSudo:(NSString *)command {
-    return [self execIntermediate:command asRoot:YES];
+    return [self execIntermediate:command asRoot:YES async:NO];
+}
+
+-(NSString *) executeAsync:(NSString *)command {
+    return [self execIntermediate:command asRoot:NO async:YES];
+}
+
+-(NSString *) executeAsyncSudo:(NSString *)command {
+    return [self execIntermediate:command asRoot:YES async:YES];
 }
 
 +(void) killSudoHelper {
     NSLog(@"Killing helper");
+    
+    if ( task != nil ) {
+        [task terminate];
+    }
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@/%@.app", [[NSBundle bundleForClass:[self class]] resourcePath], [Process executableSudoName]];
     NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n stopscript()\n end tell\n", sudoHelperPath];
-    NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];
-    [script executeAndReturnError:nil];
+/*
+    NSString *kill = [NSString stringWithFormat:@"killall -m osascript"];
+    NSLog(@"Killing NOW: %@", kill);
+    system([kill UTF8String]);
+*/
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = @"/usr/bin/osascript";
+    task.arguments = @[@"-e", scriptSource];
+    [task launch];
 }
 
 typedef struct kinfo_proc kinfo_proc;
@@ -214,7 +256,7 @@ static int GetBSDProcessList(kinfo_proc **procList, size_t *procCount)
             NSData *outputData = [[[task standardOutput] fileHandleForReading] availableData];
             NSString* command = [[NSString alloc] initWithData:outputData encoding:NSASCIIStringEncoding];
             command = [command substringToIndex:MIN(service.program.length,command.length)];
-//*
+/*
             // NOOP
 /*/
             NSLog(@"Arguments: %@", args);
