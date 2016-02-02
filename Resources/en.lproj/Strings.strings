@@ -5,7 +5,7 @@
   Created by Gerry Weißbach on 20/01/2016.
   Copyright © 2016 i-net software. All rights reserved.
 */
-"informativeUninstall" = "@This will remove '%@' and the preferecene pane it is connected to.";
+"informativeUninstall" = "This will remove '%@' and the preferecene pane it is connected to.";
 "willUninstall" = "Do you realy want to remove '%@'?";
 "OK" = "Ok";
 "Cancel" = "Cancel";

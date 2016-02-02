@@ -237,7 +237,7 @@ NSTimer *timer;
 
 - (IBAction) handleUninstallClick:(NSButton *)button {
 
-    NSAlert *alert = [NSAlert alertWithMessageText:localized(@"willUninstall") defaultButton:localized(@"OK") alternateButton:localized(@"Cancel") otherButton:NULL informativeTextWithFormat:localized(@"informativeUninstall")];
+    NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:localized(@"willUninstall"), [_service name]] defaultButton:localized(@"OK") alternateButton:localized(@"Cancel") otherButton:NULL informativeTextWithFormat:localized(@"informativeUninstall"), [_service name]];
     
     if ( [alert runModal] == NSAlertDefaultReturn ) {
         
