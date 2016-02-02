@@ -222,7 +222,7 @@ NSTimer *timer;
     NSLog(@"Status: %d; runAsRoot: %d, runAtLogin: %d", self.status, self.service.useSudo, self.service.runAtBoot);
     
     [statusIndicator setImage:[[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:[self class]] pathForResource:statusImageName ofType:@"png"]]];
-    [statusIndicator.cell accessibilitySetOverrideValue:statusImageAccessibilityDescription forAttribute:NSAccessibilityDescriptionAttribute];
+//    [statusIndicator.cell accessibilitySetOverrideValue:statusImageAccessibilityDescription forAttribute:NSAccessibilityDescriptionAttribute];
     [statusIndicator setNeedsDisplay:YES];
 }
 
@@ -237,11 +237,16 @@ NSTimer *timer;
 
 - (IBAction) handleUninstallClick:(NSButton *)button {
 
-    NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:localized(@"willUninstall"), [_service name]] defaultButton:localized(@"OK") alternateButton:localized(@"Cancel") otherButton:NULL informativeTextWithFormat:localized(@"informativeUninstall"), [_service name]];
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = [NSString stringWithFormat:localized(@"willUninstall"), [_service name]];
+    alert.informativeText = [NSString stringWithFormat:localized(@"informativeUninstall"), [_service name]];
+    [alert addButtonWithTitle:localized(@"OK")];
+    [alert addButtonWithTitle:localized(@"Cancel")];
     
-    if ( [alert runModal] == NSAlertDefaultReturn ) {
+    if ( [alert runModal] == NSAlertFirstButtonReturn ) {
         
         // Everything goes down the drain now!
+        NSLog(@"Removing the application now");
         Process *p = [[Process alloc] init];
         [NSSearchPathForDirectoriesInDomains(NSPreferencePanesDirectory, NSAllDomainsMask, YES) enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop){
             NSString *prefPane = [path stringByAppendingPathComponent:[[[NSBundle bundleForClass:[self class]] bundlePath] lastPathComponent]];
