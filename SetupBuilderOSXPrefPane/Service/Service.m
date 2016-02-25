@@ -63,7 +63,7 @@
         plistFile =[NSString stringWithFormat:@"/Library/LaunchDaemons/%@.plist", self.identifier];
     }
     
-    NSLog(@"Path for service: %@", plistFile);
+    DLog(@"Path for service: %@", plistFile);
     return plistFile;
 }
 

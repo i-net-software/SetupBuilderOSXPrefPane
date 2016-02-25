@@ -54,7 +54,7 @@ NSTimer *timer;
 
         NSColor *color = [NSColor blueColor];
         NSMutableAttributedString *colorTitle = [[NSMutableAttributedString alloc] initWithAttributedString:[button attributedTitle]];
-//        NSLog(@"title: %@", colorTitle);
+//        DLog(@"title: %@", colorTitle);
 
         NSRange titleRange = NSMakeRange(0, [colorTitle length]);
         [colorTitle addAttribute:NSForegroundColorAttributeName value:color range:titleRange];
@@ -167,7 +167,7 @@ NSTimer *timer;
         if ( ![title isEqualToString:button.title] ) { continue; }
         
         // Sending action
-        NSLog(@"Executing action: %@", action);
+        DLog(@"Executing action: %@", action);
         Process *p = [[Process alloc] init];
 
         if ( asRoot ) {
@@ -185,9 +185,9 @@ NSTimer *timer;
     NSString *parentApp = [[[bundle stringByDeletingLastPathComponent] stringByDeletingLastPathComponent] stringByDeletingLastPathComponent];
     
     // Check if this inside another container that has the same name
-    NSLog(@"Bundle Path: %@", bundle);
-    NSLog(@"Bundle Pure Name: %@", [[bundle stringByDeletingPathExtension] lastPathComponent]);
-    NSLog(@"Parent App Path: %@", parentApp);
+    DLog(@"Bundle Path: %@", bundle);
+    DLog(@"Bundle Pure Name: %@", [[bundle stringByDeletingPathExtension] lastPathComponent]);
+    DLog(@"Parent App Path: %@", parentApp);
     
     return [[[bundle stringByDeletingPathExtension] lastPathComponent] isEqualToString:[[parentApp stringByDeletingPathExtension] lastPathComponent]] ? parentApp : bundle;
 }
@@ -219,7 +219,7 @@ NSTimer *timer;
     }
 
     [onOffSwitch setState:self.status == SERVICE_RUNNING || self.status == SERVICE_STARTING ? 1 : 0];
-    NSLog(@"Status: %d; runAsRoot: %d, runAtLogin: %d", self.status, self.service.useSudo, self.service.runAtBoot);
+    DLog(@"Status: %d; runAsRoot: %d, runAtLogin: %d", self.status, self.service.useSudo, self.service.runAtBoot);
     
     [statusIndicator setImage:[[NSImage alloc] initByReferencingFile:[[NSBundle bundleForClass:[self class]] pathForResource:statusImageName ofType:@"png"]]];
 //    [statusIndicator.cell accessibilitySetOverrideValue:statusImageAccessibilityDescription forAttribute:NSAccessibilityDescriptionAttribute];
@@ -246,7 +246,7 @@ NSTimer *timer;
     if ( [alert runModal] == NSAlertFirstButtonReturn ) {
         
         // Everything goes down the drain now!
-        NSLog(@"Removing the application now");
+        DLog(@"Removing the application now");
         Process *p = [[Process alloc] init];
         [NSSearchPathForDirectoriesInDomains(NSPreferencePanesDirectory, NSAllDomainsMask, YES) enumerateObjectsUsingBlock:^(NSString *path, NSUInteger idx, BOOL *stop){
             NSString *prefPane = [path stringByAppendingPathComponent:[[[NSBundle bundleForClass:[self class]] bundlePath] lastPathComponent]];

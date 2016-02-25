@@ -42,7 +42,7 @@ NSTask *task = nil;
 -(NSString *)execIntermediate:(NSString *)command asRoot:(BOOL)root async:(BOOL)async {
     
     NSString *scriptSource = [self command:command asRoot:root];
-    NSLog(@"Executing command via NSTask: %@", scriptSource);
+    DLog(@"Executing command via NSTask: %@", scriptSource);
 
     if ( task != nil ) {
         [task terminate];
@@ -57,7 +57,7 @@ NSTask *task = nil;
     [task setStandardOutput:output];
     [task setTerminationHandler:^(NSTask *task){
         const char *result = [[output.fileHandleForReading readDataToEndOfFile] bytes];
-        NSLog(@"Result of `%@` was %@", scriptSource, result!=NULL?[NSString stringWithUTF8String:result]:@"NULL");
+        DLog(@"Result of `%@` was %@", scriptSource, result!=NULL?[NSString stringWithUTF8String:result]:@"NULL");
         task = nil;
     }];
     
@@ -88,7 +88,7 @@ NSTask *task = nil;
 }
 
 +(void) killSudoHelper {
-    NSLog(@"Killing helper");
+    DLog(@"Killing helper");
     
     if ( task != nil ) {
         [task terminate];
@@ -97,7 +97,7 @@ NSTask *task = nil;
     NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n stopscript()\n end tell\n", sudoHelperPath];
 /*
     NSString *kill = [NSString stringWithFormat:@"killall -m osascript"];
-    NSLog(@"Killing NOW: %@", kill);
+    DLog(@"Killing NOW: %@", kill);
     system([kill UTF8String]);
 */
     NSTask *task = [[NSTask alloc] init];
@@ -259,10 +259,10 @@ static int GetBSDProcessList(kinfo_proc **procList, size_t *procCount)
 /*
             // NOOP
 /*/
-            NSLog(@"Arguments: %@", args);
-            NSLog(@"Output: '%s'", outputData.bytes);
-            NSLog(@"Looking for PR: '%@'", service.program);
-            NSLog(@"Found Programm: '%@'", command);
+            DLog(@"Arguments: %@", args);
+            DLog(@"Output: '%s'", outputData.bytes);
+            DLog(@"Looking for PR: '%@'", service.program);
+            DLog(@"Found Programm: '%@'", command);
 //*/
             if ( command.length >= service.program.length && [service.program isEqualToString:command]) {
                 NSMutableDictionary* mProcess = [process mutableCopy];
