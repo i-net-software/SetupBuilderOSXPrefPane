@@ -28,6 +28,7 @@
 		30957F4F1B626BC900D8528D /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4B1B626BC900D8528D /* green.png */; };
 		30957F501B626BC900D8528D /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4C1B626BC900D8528D /* red.png */; };
 		30957F511B626BC900D8528D /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4D1B626BC900D8528D /* yellow.png */; };
+		30C2C9D81C61DC9600EA672C /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 30C2C9D71C61DC9600EA672C /* PrefixHeader.pch */; };
 		30C477F11C4FB61E006FC2AA /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30C477F31C4FB61E006FC2AA /* Strings.strings */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		30957F4B1B626BC900D8528D /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		30957F4C1B626BC900D8528D /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		30957F4D1B626BC900D8528D /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		30C2C9D71C61DC9600EA672C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		30C477F21C4FB61E006FC2AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Strings.strings; sourceTree = "<group>"; };
 		30C477F91C4FB69F006FC2AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Strings.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 		3066D9D21B60D49400729DB7 /* SetupBuilderOSXPrefPane */ = {
 			isa = PBXGroup;
 			children = (
+				30C2C9D71C61DC9600EA672C /* PrefixHeader.pch */,
 				300AAE2B1B60E4C700953A78 /* Service */,
 				300AAE141B60DF1B00953A78 /* Resources */,
 				300AAE0A1B60D9A800953A78 /* lib */,
@@ -176,6 +179,7 @@
 				300AAE361B60E4C700953A78 /* ServiceController.h in Headers */,
 				3066D9D61B60D49400729DB7 /* SetupBuilderOSXPrefPane.h in Headers */,
 				300AAE321B60E4C700953A78 /* Process.h in Headers */,
+				30C2C9D81C61DC9600EA672C /* PrefixHeader.pch in Headers */,
 				300AAE101B60D9A800953A78 /* OnOffSwitchControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +379,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
 				DSTROOT = /tmp/prefPane;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SetupBuilderOSXPrefPane/PrefixHeader.pch;
 				INFOPLIST_FILE = SetupBuilderOSXPrefPane/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -390,6 +396,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
 				DSTROOT = /tmp/prefPane;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SetupBuilderOSXPrefPane/PrefixHeader.pch;
 				INFOPLIST_FILE = SetupBuilderOSXPrefPane/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
