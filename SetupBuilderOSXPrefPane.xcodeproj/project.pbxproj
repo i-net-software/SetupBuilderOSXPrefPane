@@ -22,7 +22,6 @@
 		303EB2E81B6902DD003C5B98 /* SetupBuilderOSXPrefPane.app in Resources */ = {isa = PBXBuildFile; fileRef = 303EB2E71B6902DD003C5B98 /* SetupBuilderOSXPrefPane.app */; };
 		3066D9D61B60D49400729DB7 /* SetupBuilderOSXPrefPane.h in Headers */ = {isa = PBXBuildFile; fileRef = 3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */; };
 		3066D9D81B60D49400729DB7 /* SetupBuilderOSXPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */; };
-		3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */; };
 		3066D9DD1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3066D9DB1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib */; };
 		30957F4E1B626BC900D8528D /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4A1B626BC900D8528D /* gray.png */; };
 		30957F4F1B626BC900D8528D /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 30957F4B1B626BC900D8528D /* green.png */; };
@@ -50,7 +49,6 @@
 		3066D9D41B60D49400729DB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupBuilderOSXPrefPane.h; sourceTree = "<group>"; };
 		3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupBuilderOSXPrefPane.m; sourceTree = "<group>"; };
-		3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SetupBuilderOSXPrefPane.tiff; sourceTree = "<group>"; };
 		3066D9DC1B60D49400729DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SetupBuilderOSXPrefPane.xib; sourceTree = "<group>"; };
 		30957F4A1B626BC900D8528D /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray.png; sourceTree = "<group>"; };
 		30957F4B1B626BC900D8528D /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				300AAE0A1B60D9A800953A78 /* lib */,
 				3066D9D51B60D49400729DB7 /* SetupBuilderOSXPrefPane.h */,
 				3066D9D71B60D49400729DB7 /* SetupBuilderOSXPrefPane.m */,
-				3066D9D91B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff */,
 				3066D9DB1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib */,
 				3066D9D31B60D49400729DB7 /* Supporting Files */,
 			);
@@ -244,7 +241,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				30957F4F1B626BC900D8528D /* green.png in Resources */,
-				3066D9DA1B60D49400729DB7 /* SetupBuilderOSXPrefPane.tiff in Resources */,
 				3066D9DD1B60D49400729DB7 /* SetupBuilderOSXPrefPane.xib in Resources */,
 				30C477F11C4FB61E006FC2AA /* Strings.strings in Resources */,
 				30957F511B626BC900D8528D /* yellow.png in Resources */,
