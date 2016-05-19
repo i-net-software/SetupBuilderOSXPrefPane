@@ -1,5 +1,6 @@
 plugins {
-  id "com.gradle.plugin-publish" version "0.9.1"
+    id "com.gradle.plugin-publish" version "0.9.1"
+    id "org.openbakery.xcode-plugin" version "0.13.1"
 }
 
 apply plugin: 'java'
@@ -30,6 +31,7 @@ if( !System.getProperty("local") && file( '../BuildScripts/base.gradle' ).exists
     apply from: '../BuildScripts/base.gradle' // for internal build system
     println "Uploading into internal Repository 'fileserver'"
     
+    preparePublish.dependsOn 'sourcesJar'
     if ( System.getProperty("snapshot") ) {
         version += '-SNAPSHOT' // setting version to snapshot
     }
@@ -47,13 +49,13 @@ if( !System.getProperty("local") && file( '../BuildScripts/base.gradle' ).exists
 }
 
 task sourcesJar(type: Jar) {
-    preparePublish.dependsOn sourcesJar
+    uploadArchives.dependsOn sourcesJar
     from sourceSets.main.resources
     classifier "sources"
-}
 
-preparePublish.doFirst {
-    configurations.archives.artifacts.removeAll{ it.classifier != "sources" } // only leave gthe sources
+    doLast {
+        configurations.archives.artifacts.removeAll{ it.classifier != "sources" } // only leave gthe sources
+    }
 }
 
 publishing {
@@ -68,7 +70,13 @@ publishing {
     }
 }
 
-
 compileJava.enabled = false
 classes.enabled = false
 jar.enabled = false
+
+xcodebuild {
+  scheme = 'SetupBuilderOSXPrefPane'
+  target = 'SetupBuilderOSXPrefPane'
+  configuration = 'Release'
+  type = 'OSX'
+}
