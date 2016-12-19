@@ -6,7 +6,7 @@
   Copyright © 2016 i-net software. All rights reserved.
 */
 "informativeUninstall" = "This will remove '%@' and the preference pane it is connected to.";
-"willUninstall" = "Do you realy want to remove '%@'?";
+"willUninstall" = "Do you really want to remove '%@'?";
 "OK" = "Ok";
 "Cancel" = "Cancel";
 "Uninstall" = "Uninstall";
