@@ -7,7 +7,7 @@
 */
 "informativeUninstall" = "This will remove '%@' and the preference pane it is connected to.";
 "willUninstall" = "Do you really want to remove '%@'?";
-"OK" = "Ok";
+"OK" = "OK";
 "Cancel" = "Cancel";
 "Uninstall" = "Uninstall";
 "runAsRoot" = " (runs as root)";

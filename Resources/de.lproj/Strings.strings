@@ -7,7 +7,7 @@
 */
 "informativeUninstall" = "Hiermit wird '%@' und das damit verbundene Systemsteuerungsprogramm entfernt.";
 "willUninstall" = "Möchten Sie '%@' wirklich entfernen?";
-"OK" = "Ok";
+"OK" = "OK";
 "Cancel" = "Abbrechen";
 "Uninstall" = "Deinstallation";
 "runAsRoot" = " (als 'root' ausführen)";
