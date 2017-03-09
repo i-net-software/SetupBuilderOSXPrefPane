@@ -240,7 +240,7 @@ NSTimer *timer;
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = [NSString stringWithFormat:localized(@"willUninstall"), [_service name]];
     alert.informativeText = [NSString stringWithFormat:localized(@"informativeUninstall"), [_service name]];
-    [alert addButtonWithTitle:localized(@"OK")];
+    [alert addButtonWithTitle:localized(@"Yes")];
     [alert addButtonWithTitle:localized(@"Cancel")];
     
     if ( [alert runModal] == NSAlertFirstButtonReturn ) {
