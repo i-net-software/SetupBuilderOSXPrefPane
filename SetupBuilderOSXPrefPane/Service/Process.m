@@ -29,21 +29,19 @@ NSTask *task = nil;
     return sudoName;
 }
 
--(NSString *)command:(NSString *)command asRoot:(BOOL)root withUser:(NSString *)user {
+-(NSString *)command:(NSString *)command asRoot:(BOOL)root {
     
-    if ( user == nil ) { user = @"root"; }
-
     // Escape
     command = [command stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@/%@.app", [[NSBundle bundleForClass:[self class]] resourcePath], [Process executableSudoName]];
-    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec%@(\"%@\")\n end tell\n", sudoHelperPath, root ? [NSString stringWithFormat:@"sudo -u '%@'", user] : @"", command];
+    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec%@(\"%@\")\n end tell\n", sudoHelperPath, root ? @"sudo" : @"", command];
     
     return scriptSource;
 }
 
 -(NSString *)execIntermediate:(NSString *)command asRoot:(BOOL)root withUser:(NSString *)user async:(BOOL)async {
     
-    NSString *scriptSource = [self command:command asRoot:root withUser:user];
+    NSString *scriptSource = [self command:command asRoot:root];
     DLog(@"Executing command via NSTask: %@", scriptSource);
 
     if ( task != nil ) {
@@ -52,8 +50,15 @@ NSTask *task = nil;
     
     NSPipe *output = [NSPipe pipe];
     task = [[NSTask alloc] init];
-    task.launchPath = @"/usr/bin/osascript";
-    task.arguments = @[@"-e", scriptSource];
+
+    if ( root && user != nil ) {
+        task.launchPath = @"/usr/bin/sudo";
+        task.arguments = @[@"-u", user, @"/usr/bin/osascript",  @"-e", scriptSource];
+    } else {
+        task.launchPath = @"/usr/bin/osascript";
+        task.arguments = @[@"-e", scriptSource];
+    }
+    
     
     [task setStandardError:output];
     [task setStandardOutput:output];
