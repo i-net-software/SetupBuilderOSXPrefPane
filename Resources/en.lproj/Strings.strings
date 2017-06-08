@@ -10,4 +10,4 @@
 "Yes" = "Yes";
 "Cancel" = "Cancel";
 "Uninstall" = "Uninstall";
-"runAsRoot" = " (runs as root)";
+"runAsRoot" = " (runs as '%@')";

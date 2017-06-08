@@ -46,7 +46,7 @@ NSTimer *timer;
         
         BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
         if ( asRoot ) {
-            title = [title stringByAppendingString:asRootString];
+            title = [title stringByAppendingString:[NSString stringWithFormat:asRootString, [[starter valueForKey:@"asuser"] stringValue]]];
         }
         
         NSButton *button = [[NSButton alloc] init];
@@ -161,7 +161,7 @@ NSTimer *timer;
         NSString *action = [NSString stringWithFormat:@"cd \"%@\"; %@", [self currentBundlePath], [starter valueForKey:@"action"]];
         BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
         if ( asRoot ) {
-            title = [title stringByAppendingString:asRootString];
+            title = [title stringByAppendingString:[NSString stringWithFormat:asRootString, [[starter valueForKey:@"asuser"] stringValue]]];
         }
 
         if ( ![title isEqualToString:button.title] ) { continue; }
@@ -171,7 +171,7 @@ NSTimer *timer;
         Process *p = [[Process alloc] init];
 
         if ( asRoot ) {
-            [p executeAsyncSudo:action]; // go into working directory and then execute.
+            [p executeAsyncSudo:action withUser:[[starter valueForKey:@"asuser"] stringValue]]; // go into working directory and then execute.
         } else {
             [p executeAsync:action]; // go into working directory and then execute.
         }

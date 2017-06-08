@@ -29,19 +29,21 @@ NSTask *task = nil;
     return sudoName;
 }
 
--(NSString *)command:(NSString *)command asRoot:(BOOL)root {
+-(NSString *)command:(NSString *)command asRoot:(BOOL)root withUser:(NSString *)user {
     
+    if ( user == nil ) { user = @"root"; }
+
     // Escape
     command = [command stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@/%@.app", [[NSBundle bundleForClass:[self class]] resourcePath], [Process executableSudoName]];
-    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec%@(\"%@\")\n end tell\n", sudoHelperPath, root ? @"sudo" : @"", command];
+    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec%@(\"%@\")\n end tell\n", sudoHelperPath, root ? [NSString stringWithFormat:@"sudo -u '%@'", user] : @"", command];
     
     return scriptSource;
 }
 
--(NSString *)execIntermediate:(NSString *)command asRoot:(BOOL)root async:(BOOL)async {
+-(NSString *)execIntermediate:(NSString *)command asRoot:(BOOL)root withUser:(NSString *)user async:(BOOL)async {
     
-    NSString *scriptSource = [self command:command asRoot:root];
+    NSString *scriptSource = [self command:command asRoot:root withUser:user];
     DLog(@"Executing command via NSTask: %@", scriptSource);
 
     if ( task != nil ) {
@@ -72,19 +74,19 @@ NSTask *task = nil;
 }
 
 -(NSString *) execute:(NSString *)command {
-    return [self execIntermediate:command asRoot:NO async:NO];
+    return [self execIntermediate:command asRoot:NO withUser:nil async:NO];
 }
 
 -(NSString *) executeSudo:(NSString *)command {
-    return [self execIntermediate:command asRoot:YES async:NO];
+    return [self execIntermediate:command asRoot:YES withUser:nil async:NO];
 }
 
 -(NSString *) executeAsync:(NSString *)command {
-    return [self execIntermediate:command asRoot:NO async:YES];
+    return [self execIntermediate:command asRoot:NO withUser:nil async:YES];
 }
 
--(NSString *) executeAsyncSudo:(NSString *)command {
-    return [self execIntermediate:command asRoot:YES async:YES];
+-(NSString *) executeAsyncSudo:(NSString *)command withUser:(NSString *)user {
+    return [self execIntermediate:command asRoot:YES withUser:user async:YES];
 }
 
 +(void) killSudoHelper {

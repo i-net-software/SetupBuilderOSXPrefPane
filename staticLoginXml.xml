@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!-- Kein Login Request mit dieser Seite. Diese URL wird von einem JUnit test verwendet. -->
+<properties>
+<entry key="username">dev</entry>
+</properties>

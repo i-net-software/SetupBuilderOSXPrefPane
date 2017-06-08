@@ -17,7 +17,7 @@
 -(NSString *) execute:(NSString *)command;
 -(NSString *) executeSudo:(NSString *)command;
 -(NSString *) executeAsync:(NSString *)command;
--(NSString *) executeAsyncSudo:(NSString *)command;
+-(NSString *) executeAsyncSudo:(NSString *)command withUser:(NSString *)user;
 
 +(void) killSudoHelper;
 +(NSString *)executableSudoName;
