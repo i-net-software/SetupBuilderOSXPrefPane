@@ -43,6 +43,7 @@ typedef enum {
 -(void) updateStatusIndicator;
 -(void) pollStatus;
 -(NSString *)currentBundlePath;
+-(NSString *)userForStarter:(NSDictionary *)starter;
 
 - (IBAction) handleStartStopClick:(OnOffSwitchControl *)onOff;
 - (IBAction) handleUninstallClick:(NSButton *)button;

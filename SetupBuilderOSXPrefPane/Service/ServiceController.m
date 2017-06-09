@@ -20,6 +20,11 @@ NSTimer *timer;
 
 #define localized(name) NSLocalizedStringFromTableInBundle(name, @"Strings", [NSBundle bundleForClass:[self class]], NULL)
 
+- (NSString *)userForStarter:(NSDictionary *)starter {
+    NSString *user = [starter valueForKey:@"asuser"];
+    return user != nil ? user : @"root";
+}
+
 - (void)setService:(Service *)service
 {
     _service = service;
@@ -46,7 +51,7 @@ NSTimer *timer;
         
         BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
         if ( asRoot ) {
-            title = [title stringByAppendingString:[NSString stringWithFormat:asRootString, [starter valueForKey:@"asuser"]]];
+            title = [title stringByAppendingString:[NSString stringWithFormat:asRootString, [self userForStarter:starter]]];
         }
         
         NSButton *button = [[NSButton alloc] init];
@@ -161,7 +166,7 @@ NSTimer *timer;
         NSString *action = [NSString stringWithFormat:@"cd \"%@\"; %@", [self currentBundlePath], [starter valueForKey:@"action"]];
         BOOL asRoot = [[starter valueForKey:@"asroot"] boolValue];
         if ( asRoot ) {
-            title = [title stringByAppendingString:[NSString stringWithFormat:asRootString, [starter valueForKey:@"asuser"]]];
+            title = [title stringByAppendingString:[NSString stringWithFormat:asRootString, [self userForStarter:starter]]];
         }
 
         if ( ![title isEqualToString:button.title] ) { continue; }
