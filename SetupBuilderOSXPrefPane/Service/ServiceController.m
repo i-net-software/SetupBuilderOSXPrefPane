@@ -140,14 +140,14 @@ NSTimer *timer;
 
 -(void) start {
     
-    [self stop]; // there are cases that the service can not be restarted. Especially if it was killed.
     self.status = SERVICE_STARTING;
     [self updateStatusIndicator];
     
     Process *p = [[Process alloc] init];
     
+    // there are cases that the service can not be restarted. Especially if it was killed.
     NSString *source = [NSString stringWithUTF8String:[self.service.plist fileSystemRepresentation]];
-    NSString *copyCommand = [NSString stringWithFormat:@"ln \"%@\" \"%@\"", source, [self.service pathForService]];
+    NSString *copyCommand = [NSString stringWithFormat:@"ln \"%@\" \"%@\" || /bin/launchctl unload \"%@\"", source, [self.service pathForService], [self.service pathForService]];
     NSString *runCommand = [NSString stringWithFormat:@"/bin/launchctl load \"%@\"", [self.service pathForService]];
 
     if (self.service.useSudo) {
