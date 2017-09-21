@@ -139,6 +139,8 @@ NSTimer *timer;
 }
 
 -(void) start {
+    
+    [self stop]; // there are cases that the service can not be restarted. Especially if it was killed.
     self.status = SERVICE_STARTING;
     [self updateStatusIndicator];
     
